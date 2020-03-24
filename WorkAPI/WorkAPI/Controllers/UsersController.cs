@@ -47,7 +47,38 @@ namespace WorkAPI.Controllers
                     return BadRequest();
                 }
             }
-     
+            [HttpPost]
+            [Route("Register")]
+            public IHttpActionResult Register([FromBody]RequestRegister data)
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                User user = new User();
+                user.Username = data.Username;
+                user.PasswordHash = data.Password;
+                user.RoleId = data.RoleId;
+                user.Fullname = data.Fullname;
+                user.Email = data.Email;
+                user.GroupId = data.GroubId;
+                db.Users.Add(user);
+                return Ok(db.SaveChanges());
+            }
+            [HttpPut]
+            [Route("Update")]
+            public IHttpActionResult UpdateUser([FromBody]RequestUpdateUser data)
+            {
+                User user = db.Users.Where(c => (c.UserId == data.Id)).FirstOrDefault();
+                user.Username = data.Username;
+                user.PasswordHash = data.Password;
+                user.RoleId = data.RoleId;
+                user.Fullname = data.Fullname;
+                user.Email = data.Email;
+                user.GroupId = data.GroubId;
+                db.Entry(user).State = EntityState.Modified;
+                return Ok(db.SaveChanges());
+            }
 
 
     // GET: api/Users
