@@ -1,7 +1,11 @@
 package com.example.workmanager.requests;
 
+import com.google.gson.annotations.SerializedName;
+
 public class LoginRequest {
+    @SerializedName("username")
     public String username;
+    @SerializedName("password")
     public String password;
 
     public LoginRequest(){

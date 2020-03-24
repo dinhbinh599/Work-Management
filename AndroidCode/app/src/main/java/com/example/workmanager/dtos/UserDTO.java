@@ -13,8 +13,6 @@ public class UserDTO {
     String email;
     @SerializedName("groupId")
     int groupId;
-    @SerializedName("roleName")
-    String roleName;
 
     public int getUserId() {
         return UserId;
@@ -56,11 +54,4 @@ public class UserDTO {
         this.groupId = groupId;
     }
 
-    public String getRoleName() {
-        return roleName;
-    }
-
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
-    }
 }
