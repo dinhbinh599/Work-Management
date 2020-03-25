@@ -3,6 +3,7 @@ package com.example.workmanager.daos;
 import com.example.workmanager.apis.RetrofitClient;
 import com.example.workmanager.apis.UserAPI;
 import com.example.workmanager.requests.LoginRequest;
+import com.example.workmanager.requests.RegisterRequest;
 import com.example.workmanager.responses.UserResponse;
 
 import retrofit2.Callback;
@@ -18,5 +19,8 @@ public class UserDAO {
     public void checkLogin(LoginRequest request, Callback<UserResponse> callBack)
     {
         userAPI.login(request).enqueue(callBack);
+    }
+    public void register(RegisterRequest request, Callback<UserResponse> callback){
+        userAPI.register(request).enqueue(callback);
     }
 }

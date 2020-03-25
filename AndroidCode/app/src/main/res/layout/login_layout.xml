@@ -47,5 +47,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:textSize="15sp"
-        android:text="Register Me" />
+        android:text="Register Me"
+        android:clickable="true"
+        android:onClick="clickToRegisterPage"/>
 </RelativeLayout>

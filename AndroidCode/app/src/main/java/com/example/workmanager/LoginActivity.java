@@ -52,4 +52,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+    public void clickToRegisterPage(View view){
+        Intent intent = new Intent(this,RegisterActivity.class);
+        startActivity(intent);
+    }
 }
