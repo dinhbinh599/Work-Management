@@ -32,7 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void clickToRegister(View view){
         RegisterRequest request = new RegisterRequest(edtUsername.getText().toString(),edtPassword.getText().toString(),
-                                     edtFullname.getText().toString(),edtEmail.getText().toString(),1,1);
+                                     edtFullname.getText().toString(),edtEmail.getText().toString(),1,0);
         UserDAO userDAO = new UserDAO();
         userDAO.register(request, new Callback<UserResponse>() {
             @Override
