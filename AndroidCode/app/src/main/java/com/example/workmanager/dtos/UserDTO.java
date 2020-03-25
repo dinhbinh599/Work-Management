@@ -2,24 +2,26 @@ package com.example.workmanager.dtos;
 
 import com.google.gson.annotations.SerializedName;
 
-public class UserDTO {
+import java.io.Serializable;
+
+public class UserDTO implements Serializable {
     @SerializedName("userId")
-    int UserId;
+    int userId;
     @SerializedName("roleId")
     int roleId;
-    @SerializedName("fullname")
-    String fullname;
+    @SerializedName("fullName")
+    String fullName;
     @SerializedName("email")
     String email;
     @SerializedName("groupId")
     int groupId;
 
     public int getUserId() {
-        return UserId;
+        return userId;
     }
 
     public void setUserId(int userId) {
-        UserId = userId;
+        this.userId = userId;
     }
 
     public int getRoleId() {
@@ -30,12 +32,12 @@ public class UserDTO {
         this.roleId = roleId;
     }
 
-    public String getFullname() {
-        return fullname;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getEmail() {
@@ -53,5 +55,4 @@ public class UserDTO {
     public void setGroupId(int groupId) {
         this.groupId = groupId;
     }
-
 }

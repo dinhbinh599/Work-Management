@@ -1,19 +1,17 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
-using WorkAPI;
 using WorkAPI.Models;
+using WorkAPI.ViewModel;
 
 namespace WorkAPI.Controllers
-{   
+{
 
     [RoutePrefix("api/users")]
     public class UsersController : ApiController
@@ -26,8 +24,9 @@ namespace WorkAPI.Controllers
             public IHttpActionResult Login([FromBody]LoginRequest data)
             {
                 try
-                {                  
-                    IList<User> listUser = null;
+                {
+                       var result = new UserViewModel() ;
+                    IList<User> listUser=null;
                     using (var ctx = new TaskManagerEntities())
                     {
                         if (data.Username != null && data.Username != "" && data.Password != null && data.Password != "")
@@ -40,7 +39,16 @@ namespace WorkAPI.Controllers
                         return NotFound();
                     }
 
-                    return Ok(listUser[0]);
+                result.UserId = listUser[0].UserId;
+                result.Username = listUser[0].Username;
+                result.RoleId = listUser[0].RoleId;
+                result.Fullname = listUser[0].Fullname;
+                result.Email = listUser[0].Email;
+
+                return Ok(new ApiResult {
+                    Data = result,
+                    }
+                        );
                 }
                 catch (Exception e)
                 {
