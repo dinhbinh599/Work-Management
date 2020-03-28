@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:layout_below="@+id/edtPassword"
-            android:inputType="textPassword"
+            android:inputType="textPersonName"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"/>
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:layout_below="@+id/edtConfirmPass"
-            android:inputType="textPassword"
+            android:inputType="textPersonName"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"/>
@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:layout_below="@+id/edtFullname"
-            android:inputType="textPassword"
+            android:inputType="textPersonName"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"/>

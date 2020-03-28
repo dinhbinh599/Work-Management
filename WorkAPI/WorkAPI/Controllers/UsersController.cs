@@ -25,7 +25,7 @@ namespace WorkAPI.Controllers
             {
                 try
                 {
-                       var result = new UserViewModel() ;
+                    var result = new UserViewModel() ;
                     IList<User> listUser=null;
                     using (var ctx = new TaskManagerEntities())
                     {
@@ -41,6 +41,7 @@ namespace WorkAPI.Controllers
 
                 result.UserId = listUser[0].UserId;
                 result.Username = listUser[0].Username;
+                result.Password = listUser[0].PasswordHash;
                 result.RoleId = listUser[0].RoleId;
                 result.Fullname = listUser[0].Fullname;
                 result.Email = listUser[0].Email;
@@ -69,7 +70,7 @@ namespace WorkAPI.Controllers
             user.RoleId = data.RoleId;
             user.Fullname = data.Fullname;
             user.Email = data.Email;
-            user.GroupId = data.GroubId;
+            user.GroupId = data.GroupId;
             var result = db.Users.Add(user);
             db.SaveChanges();
             return Ok(result);
@@ -78,15 +79,17 @@ namespace WorkAPI.Controllers
         [Route("Update")]
         public IHttpActionResult UpdateUser([FromBody]RequestUpdateUser data)
         {
-            User user = db.Users.Where(c => (c.UserId == data.Id)).FirstOrDefault();
+            User user = db.Users.Where(c => (c.UserId == data.UserId)).FirstOrDefault();
             user.Username = data.Username;
             user.PasswordHash = data.Password;
-            user.RoleId = data.RoleId;
             user.Fullname = data.Fullname;
             user.Email = data.Email;
-            user.GroupId = data.GroubId;
             db.Entry(user).State = EntityState.Modified;
-            return Ok(db.SaveChanges());
+            db.SaveChanges();
+            return Ok(new ApiResult
+            {
+                Message = "Ok"
+            });
         }
 
 

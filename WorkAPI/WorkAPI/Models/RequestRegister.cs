@@ -12,6 +12,6 @@ namespace WorkAPI.Models
         public int RoleId { get; set; }
         public string Fullname { get; set; }
         public string Email { get; set; }
-        public int GroubId { get; set; }
+        public int GroupId { get; set; }
     }
 }
