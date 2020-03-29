@@ -259,8 +259,13 @@ namespace TaskManager.Controllers
             user.GroupId = data.GroupId;
             var result = _context.User.Add(user);
             _context.SaveChanges();
-            return Ok(result);
+            return Ok(new ApiResult
+            {
+                Message = "Ok",
+                Data = result,
+            });
         }
+
         [HttpPut]
         [Route("Update")]
         public IActionResult UpdateUser([FromBody]RequestUpdateUser data)

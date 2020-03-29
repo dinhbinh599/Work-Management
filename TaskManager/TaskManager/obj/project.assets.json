@@ -13282,11 +13282,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Study\\Spring3\\Mobile\\BaoProject\\TaskManager\\TaskManager\\TaskManager\\TaskManager.csproj",
+      "projectUniqueName": "D:\\Study\\Spring3\\Mobile\\MyWorkApp\\TaskManager\\TaskManager\\TaskManager.csproj",
       "projectName": "TaskManager",
-      "projectPath": "D:\\Study\\Spring3\\Mobile\\BaoProject\\TaskManager\\TaskManager\\TaskManager\\TaskManager.csproj",
+      "projectPath": "D:\\Study\\Spring3\\Mobile\\MyWorkApp\\TaskManager\\TaskManager\\TaskManager.csproj",
       "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "D:\\Study\\Spring3\\Mobile\\BaoProject\\TaskManager\\TaskManager\\TaskManager\\obj\\",
+      "outputPath": "D:\\Study\\Spring3\\Mobile\\MyWorkApp\\TaskManager\\TaskManager\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
