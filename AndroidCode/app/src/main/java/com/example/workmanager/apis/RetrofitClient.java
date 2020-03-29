@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
 
-    private static final String BASE_URL = "https://workapi-jd5.conveyor.cloud/";
+    private static final String BASE_URL = "http://192.168.0.105:45455/";
 
     public static Retrofit retrofit = null;
 
