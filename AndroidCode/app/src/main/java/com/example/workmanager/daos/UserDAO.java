@@ -27,4 +27,7 @@ public class UserDAO {
     public void update(UpdateRequest request, Callback<UserResponse> callback){
         userAPI.update(request).enqueue(callback);
     }
+    public void getUserProfile(int userId, Callback<UserResponse> callback){
+        userAPI.getUserById(userId).enqueue(callback);
+    }
 }

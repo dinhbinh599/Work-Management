@@ -17,6 +17,8 @@ public class UserDTO implements Serializable {
     String fullName;
     @SerializedName("email")
     String email;
+    @SerializedName("phone")
+    String phone;
     @SerializedName("groupId")
     int groupId;
 
@@ -66,6 +68,14 @@ public class UserDTO implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public int getGroupId() {
