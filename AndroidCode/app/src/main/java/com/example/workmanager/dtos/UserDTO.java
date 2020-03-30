@@ -19,6 +19,8 @@ public class UserDTO implements Serializable {
     String roleName;
     @SerializedName("email")
     String email;
+    @SerializedName("phone")
+    String phone;
     @SerializedName("groupId")
     Integer groupId;
 
@@ -76,6 +78,14 @@ public class UserDTO implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public Integer getGroupId() {
