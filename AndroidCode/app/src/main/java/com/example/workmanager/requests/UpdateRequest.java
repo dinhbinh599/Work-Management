@@ -11,15 +11,17 @@ public class UpdateRequest {
     public String email;
     @SerializedName("phone")
     public String phone;
-
+    @SerializedName("roleName")
+    public String roleName;
     public UpdateRequest() {
     }
 
-    public UpdateRequest(int userId,String fullname, String email, String phone) {
+    public UpdateRequest(int userId,String fullname, String email, String phone, String roleName) {
         this.userId = userId;
         this.fullname = fullname;
         this.email = email;
         this.phone = phone;
+        this.roleName = roleName;
     }
 
     public int getUserId() {
@@ -52,5 +54,13 @@ public class UpdateRequest {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 }

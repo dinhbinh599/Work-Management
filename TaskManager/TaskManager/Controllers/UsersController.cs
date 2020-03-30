@@ -272,9 +272,12 @@ namespace TaskManager.Controllers
         public IActionResult UpdateUser(RequestUpdateUser data)
         {
             User user = _context.User.Where(c => (c.UserId == data.UserId)).FirstOrDefault();
+            var roleService = GetService<RoleService>();
+            var role = roleService.GetRoleByName(data.RoleName);
             user.Fullname = data.Fullname;
             user.Email = data.Email;
             user.Phone = data.Phone;
+            user.RoleId = role.RoleId;
             user.ModifyTime = DateTime.Now;
             _context.Entry(user).State = EntityState.Modified;
             _context.SaveChanges();

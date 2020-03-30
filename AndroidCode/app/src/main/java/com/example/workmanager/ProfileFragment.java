@@ -26,22 +26,31 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ProfileFragment extends Fragment {
-    EditText edtUsername,edtFullname,edtEmail,edtPhone;
+    EditText edtFullname,edtEmail,edtPhone;
+    TextView txtRole;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
-        edtUsername = view.findViewById(R.id.edtUsername);
         edtFullname = view.findViewById(R.id.edtFullname);
         edtEmail = view.findViewById(R.id.edtEmail);
         edtPhone = view.findViewById(R.id.edtPhone);
+        txtRole = view.findViewById(R.id.txtRole);
         Button btnSave = view.findViewById(R.id.btnSave);
+        Button btnChangeRole = view.findViewById(R.id.btnChangeRole);
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("com.example.workmanager_preferences", Context.MODE_PRIVATE);
         Bundle bundle = getArguments();
         int userId = sharedPreferences.getInt("userId",0);
         loadUserProfile(userId);
+        btnChangeRole.setOnClickListener((v)-> {
+            if(txtRole.getText().toString().equalsIgnoreCase("Role :User")){
+                txtRole.setText("Role :Manager");
+            }else if(txtRole.getText().toString().equalsIgnoreCase("Role :Manager")){
+                txtRole.setText("Role :User");
+            }
+        });
         btnSave.setOnClickListener((v)-> {
             boolean check = true;
-            String fullname,email,phone,validate = "";
+            String fullname,email,phone,role,validate = "";
             fullname = edtFullname.getText().toString();
             if(fullname.compareTo("") == 0){
                 validate += "Fullname can't be empty\n" ;
@@ -53,8 +62,13 @@ public class ProfileFragment extends Fragment {
                 check = false;
             }
             phone = edtPhone.getText().toString();
+            if(txtRole.getText().toString().equalsIgnoreCase("Role :User")){
+                role = "user";
+            }else{
+                role = "manager";
+            }
             if(check) {
-                UpdateRequest request = new UpdateRequest(userId,fullname,email,phone);
+                UpdateRequest request = new UpdateRequest(userId,fullname,email,phone,role);
                 UserDAO userDAO = new UserDAO();
                 userDAO.update(request, new Callback<UserResponse>() {
                     @Override
@@ -81,10 +95,10 @@ public class ProfileFragment extends Fragment {
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                 if(response.isSuccessful()){
                     UserDTO userDTO = response.body().getData();
-                    edtUsername.setText(userDTO.getUsername());
                     edtEmail.setText(userDTO.getEmail());
                     edtFullname.setText(userDTO.getFullName());
                     edtPhone.setText(userDTO.getPhone());
+                    txtRole.setText("Role :" + userDTO.getRoleName());
                 }else{
                     Toast.makeText(getContext(), response.message(), Toast.LENGTH_SHORT).show();
                 }
