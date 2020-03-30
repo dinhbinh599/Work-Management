@@ -15,10 +15,20 @@ public class UserDTO implements Serializable {
     String password;
     @SerializedName("fullName")
     String fullName;
+    @SerializedName("roleName")
+    String roleName;
     @SerializedName("email")
     String email;
     @SerializedName("groupId")
-    int groupId;
+    Integer groupId;
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
 
     public int getUserId() {
         return userId;
@@ -68,11 +78,11 @@ public class UserDTO implements Serializable {
         this.email = email;
     }
 
-    public int getGroupId() {
+    public Integer getGroupId() {
         return groupId;
     }
 
-    public void setGroupId(int groupId) {
+    public void setGroupId(Integer groupId) {
         this.groupId = groupId;
     }
 }

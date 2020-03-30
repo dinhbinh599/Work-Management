@@ -10,4 +10,6 @@ import retrofit2.http.POST;
 public interface TaskAPI {
     @POST ("api/Tasks/all")
     Call<GetTaskResponse> getAllTask(@Body GetTaskRequest request);
+
+
 }
