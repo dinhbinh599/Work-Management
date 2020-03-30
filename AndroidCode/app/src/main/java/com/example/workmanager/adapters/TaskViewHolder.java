@@ -12,6 +12,7 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
     public TextView txtTaskName;
     public TextView txtDescription;
     public TextView txtEndTime;
+    public TextView txtStatus;
     public View cardView;
 
     public TaskViewHolder(@NonNull View itemView) {
@@ -20,6 +21,7 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
         txtTaskName = itemView.findViewById(R.id.txtTaskName);
         txtDescription = itemView.findViewById(R.id.txtDescription);
         txtEndTime = itemView.findViewById(R.id.txtEndTime);
+        txtStatus = itemView.findViewById(R.id.txtStatusName);
     }
 
     public TextView getTxtTaskName() {
@@ -44,5 +46,21 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
 
     public void setTxtEndTime(TextView txtEndTime) {
         this.txtEndTime = txtEndTime;
+    }
+
+    public TextView getTxtStatus() {
+        return txtStatus;
+    }
+
+    public void setTxtStatus(TextView txtStatus) {
+        this.txtStatus = txtStatus;
+    }
+
+    public View getCardView() {
+        return cardView;
+    }
+
+    public void setCardView(View cardView) {
+        this.cardView = cardView;
     }
 }

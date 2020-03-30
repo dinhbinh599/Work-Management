@@ -7,16 +7,23 @@ public class TaskDTO implements Serializable {
     public int taskId;
     public String name;
     public String description;
-    public int sourceId;
+    public Integer sourceId;
     public String report;
     public String creator;
     public Date startTime;
     public Date endTime;
-    public int handlerId;
+    public Integer handlerId;
+    public String handlerName;
     public Date createdTime;
     public int statusId;
+    public String statusName;
+    public Integer mark;
+    public String comment;
+    public Date reviewedTime;
+    public String confirmationImage;
 
-    public TaskDTO() {
+    public TaskDTO(){
+
     }
 
     public int getTaskId() {
@@ -43,11 +50,11 @@ public class TaskDTO implements Serializable {
         this.description = description;
     }
 
-    public int getSourceId() {
+    public Integer getSourceId() {
         return sourceId;
     }
 
-    public void setSourceId(int sourceId) {
+    public void setSourceId(Integer sourceId) {
         this.sourceId = sourceId;
     }
 
@@ -83,12 +90,20 @@ public class TaskDTO implements Serializable {
         this.endTime = endTime;
     }
 
-    public int getHandlerId() {
+    public Integer getHandlerId() {
         return handlerId;
     }
 
-    public void setHandlerId(int handlerId) {
+    public void setHandlerId(Integer handlerId) {
         this.handlerId = handlerId;
+    }
+
+    public String getHandlerName() {
+        return handlerName;
+    }
+
+    public void setHandlerName(String handlerName) {
+        this.handlerName = handlerName;
     }
 
     public Date getCreatedTime() {
@@ -105,5 +120,45 @@ public class TaskDTO implements Serializable {
 
     public void setStatusId(int statusId) {
         this.statusId = statusId;
+    }
+
+    public String getStatusName() {
+        return statusName;
+    }
+
+    public void setStatusName(String statusName) {
+        this.statusName = statusName;
+    }
+
+    public Integer getMark() {
+        return mark;
+    }
+
+    public void setMark(Integer mark) {
+        this.mark = mark;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public Date getReviewedTime() {
+        return reviewedTime;
+    }
+
+    public void setReviewedTime(Date reviewedTime) {
+        this.reviewedTime = reviewedTime;
+    }
+
+    public String getConfirmationImage() {
+        return confirmationImage;
+    }
+
+    public void setConfirmationImage(String confirmationImage) {
+        this.confirmationImage = confirmationImage;
     }
 }

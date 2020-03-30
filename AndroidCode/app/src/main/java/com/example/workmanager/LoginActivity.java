@@ -39,6 +39,12 @@ public class LoginActivity extends AppCompatActivity {
                 if (response.code() == ResponseCodeConstant.OK) {
                     SharedPreferences sharedPreferences = getSharedPreferences("com.example.workmanager_preferences", MODE_PRIVATE);
                     sharedPreferences.edit().putInt("userId", response.body().getData().getUserId()).commit();
+                    sharedPreferences.edit().putString("username",response.body().getData().getUsername()).commit();
+                    sharedPreferences.edit().putString("password",response.body().getData().getPassword()).commit();
+                    sharedPreferences.edit().putString("fullname",response.body().getData().getFullName()).commit();
+                    sharedPreferences.edit().putString("email",response.body().getData().getEmail()).commit();
+                    sharedPreferences.edit().putString("userRole", response.body().getData().getRoleName()).commit();
+                    sharedPreferences.edit().putInt("groupId", response.body().getData().getGroupId() != null ? response.body().getData().getGroupId().intValue() : 0);
                     Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                     startActivity(intent);
                 }
