@@ -1,0 +1,102 @@
+2020-03-31 19:28:12.4662|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-03-31 19:28:14.4801|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:37645/index.html  
+2020-03-31 19:28:14.9103|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 430.8703ms 200 text/html
+2020-03-31 19:28:15.2035|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 HEAD http://localhost:37645/  
+2020-03-31 19:28:15.2939|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 90.4953ms 404 
+2020-03-31 19:28:16.4988|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:37645/swagger/v1/swagger.json  
+2020-03-31 19:28:16.7447|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 245.8711ms 200 application/json;charset=utf-8
+2020-03-31 19:28:59.0404|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:37645/api/Users/login application/json; charset=UTF-8 36
+2020-03-31 19:28:59.0803|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.UsersController.Login (TaskManager)'
+2020-03-31 19:28:59.1409|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(TaskManager.Models.Request.LoginRequest) on controller TaskManager.Controllers.UsersController (TaskManager).
+2020-03-31 19:29:00.0873|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.UsersController.Login (TaskManager) - Validation state: Valid
+2020-03-31 19:29:00.4080|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-03-31 19:29:00.4891|WARN|Microsoft.EntityFrameworkCore.Query|The Include operation for navigation '[x].Role' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-03-31 19:29:00.8595|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (56ms) [Parameters=[@__username_0='?' (Size = 256), @__password_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x.Role].[RoleId], [x.Role].[Name], [x].[Fullname], [x].[Email], [x].[UserId], [x].[GroupId], [x].[Username]
+FROM [User] AS [x]
+LEFT JOIN [Role] AS [x.Role] ON [x].[RoleId] = [x.Role].[RoleId]
+WHERE ([x].[Username] = @__username_0) AND ([x].[PasswordHash] = @__password_1)
+2020-03-31 19:29:00.9465|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.UsersController.Login (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 843.6703ms.
+2020-03-31 19:29:00.9611|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-03-31 19:29:00.9908|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.UsersController.Login (TaskManager) in 1830.2829ms
+2020-03-31 19:29:01.0018|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.UsersController.Login (TaskManager)'
+2020-03-31 19:29:01.0125|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1973.3332ms 200 application/json; charset=utf-8
+2020-03-31 19:29:01.2290|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:37645/api/Tasks/all application/json; charset=UTF-8 40
+2020-03-31 19:29:01.2444|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-03-31 19:29:01.2646|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetTask", controller = "Tasks"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTask(TaskManager.Models.Request.GetTasksRequest) on controller TaskManager.Controllers.TasksController (TaskManager).
+2020-03-31 19:29:01.3620|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.TasksController.GetTask (TaskManager) - Validation state: Valid
+2020-03-31 19:29:01.3831|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-03-31 19:29:01.4110|WARN|Microsoft.EntityFrameworkCore.Query|The Include operation for navigation '[x].Role' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-03-31 19:29:01.4321|WARN|Microsoft.EntityFrameworkCore.Query|The Include operation for navigation '[x].Group' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-03-31 19:29:01.5129|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (47ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x.Role].[RoleId], [x.Role].[Name], [x].[UserId], [x].[GroupId], [x].[RoleId] AS [RoleId0], [x].[Fullname], [x].[Phone], [x].[Email]
+FROM [User] AS [x]
+LEFT JOIN [Role] AS [x.Role] ON [x].[RoleId] = [x.Role].[RoleId]
+WHERE [x].[UserId] = @__id_0
+2020-03-31 19:29:01.5529|WARN|Microsoft.EntityFrameworkCore.Query|The Include operation for navigation '[x].Handler' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-03-31 19:29:01.5671|WARN|Microsoft.EntityFrameworkCore.Query|The Include operation for navigation '[x].Status' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-03-31 19:29:01.6823|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (55ms) [Parameters=[@__request_HandlerId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x.Status].[StatusId], [x.Status].[Name], [x.Handler].[UserId], [x.Handler].[Email], [x.Handler].[Fullname], [x.Handler].[GroupId], [x.Handler].[ModifyTime], [x.Handler].[PasswordHash], [x.Handler].[Phone], [x.Handler].[RoleId], [x.Handler].[Username], [x].[TaskId], [x].[Name] AS [Name0], [x].[Description], [x].[StartTime], [x].[EndTime], [x].[StatusId] AS [StatusId0], [x].[HandlerId]
+FROM [Task] AS [x]
+INNER JOIN [Status] AS [x.Status] ON [x].[StatusId] = [x.Status].[StatusId]
+LEFT JOIN [User] AS [x.Handler] ON [x].[HandlerId] = [x.Handler].[UserId]
+WHERE [x].[HandlerId] = @__request_HandlerId_0
+ORDER BY [StatusId0], [x].[EndTime]
+2020-03-31 19:29:01.7511|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.TasksController.GetTask (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 370.7655ms.
+2020-03-31 19:29:01.7639|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-03-31 19:29:01.7767|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.TasksController.GetTask (TaskManager) in 498.5138ms
+2020-03-31 19:29:01.7767|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-03-31 19:29:01.7979|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 568.94ms 200 application/json; charset=utf-8
+2020-03-31 19:34:49.2899|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-03-31 19:34:50.1798|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:37645/index.html  
+2020-03-31 19:34:50.4251|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 247.7326ms 200 text/html
+2020-03-31 19:34:51.2042|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:37645/swagger/v1/swagger.json  
+2020-03-31 19:34:51.5838|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 379.5978ms 200 application/json;charset=utf-8
+2020-03-31 19:36:04.5482|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-03-31 19:36:05.2576|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:37645/api/Users/login application/json; charset=UTF-8 36
+2020-03-31 19:36:05.2576|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:37645/index.html  
+2020-03-31 19:36:05.4172|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.UsersController.Login (TaskManager)'
+2020-03-31 19:36:05.4527|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(TaskManager.Models.Request.LoginRequest) on controller TaskManager.Controllers.UsersController (TaskManager).
+2020-03-31 19:36:05.4927|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 236.3846ms 200 text/html
+2020-03-31 19:36:05.9787|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:37645/swagger/v1/swagger.json  
+2020-03-31 19:36:06.6086|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.UsersController.Login (TaskManager) - Validation state: Valid
+2020-03-31 19:36:06.7443|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 765.67ms 200 application/json;charset=utf-8
+2020-03-31 19:36:07.0016|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-03-31 19:36:07.1360|WARN|Microsoft.EntityFrameworkCore.Query|The Include operation for navigation '[x].Role' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-03-31 19:36:07.5272|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (70ms) [Parameters=[@__username_0='?' (Size = 256), @__password_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x.Role].[RoleId], [x.Role].[Name], [x].[Fullname], [x].[Email], [x].[UserId], [x].[GroupId], [x].[Username]
+FROM [User] AS [x]
+LEFT JOIN [Role] AS [x.Role] ON [x].[RoleId] = [x.Role].[RoleId]
+WHERE ([x].[Username] = @__username_0) AND ([x].[PasswordHash] = @__password_1)
+2020-03-31 19:36:07.6194|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.UsersController.Login (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 997.5642ms.
+2020-03-31 19:36:07.6194|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-03-31 19:36:07.6532|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.UsersController.Login (TaskManager) in 2187.1833ms
+2020-03-31 19:36:07.6655|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.UsersController.Login (TaskManager)'
+2020-03-31 19:36:07.6655|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 2424.8664ms 200 application/json; charset=utf-8
+2020-03-31 19:36:07.8722|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:37645/api/Tasks/all application/json; charset=UTF-8 26
+2020-03-31 19:36:07.8722|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-03-31 19:36:07.8957|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetTask", controller = "Tasks"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTask(TaskManager.Models.Request.GetTasksRequest) on controller TaskManager.Controllers.TasksController (TaskManager).
+2020-03-31 19:36:07.9395|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.TasksController.GetTask (TaskManager) - Validation state: Valid
+2020-03-31 19:36:07.9560|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-03-31 19:36:08.0054|WARN|Microsoft.EntityFrameworkCore.Query|The Include operation for navigation '[x].Role' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-03-31 19:36:08.0214|WARN|Microsoft.EntityFrameworkCore.Query|The Include operation for navigation '[x].Group' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-03-31 19:36:08.1153|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (53ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x.Role].[RoleId], [x.Role].[Name], [x].[UserId], [x].[GroupId], [x].[RoleId] AS [RoleId0], [x].[Fullname], [x].[Phone], [x].[Email]
+FROM [User] AS [x]
+LEFT JOIN [Role] AS [x.Role] ON [x].[RoleId] = [x.Role].[RoleId]
+WHERE [x].[UserId] = @__id_0
+2020-03-31 19:36:08.1473|WARN|Microsoft.EntityFrameworkCore.Query|The Include operation for navigation '[x].Handler' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-03-31 19:36:08.1578|WARN|Microsoft.EntityFrameworkCore.Query|The Include operation for navigation '[x].Status' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-03-31 19:36:08.2842|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (74ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [x.Status].[StatusId], [x.Status].[Name], [x.Handler].[UserId], [x.Handler].[Email], [x.Handler].[Fullname], [x.Handler].[GroupId], [x.Handler].[ModifyTime], [x.Handler].[PasswordHash], [x.Handler].[Phone], [x.Handler].[RoleId], [x.Handler].[Username], [x].[TaskId], [x].[Name] AS [Name0], [x].[Description], [x].[StartTime], [x].[EndTime], [x].[StatusId] AS [StatusId0], [x].[HandlerId]
+FROM [Task] AS [x]
+INNER JOIN [Status] AS [x.Status] ON [x].[StatusId] = [x.Status].[StatusId]
+LEFT JOIN [User] AS [x.Handler] ON [x].[HandlerId] = [x.Handler].[UserId]
+ORDER BY [StatusId0], [x].[EndTime]
+2020-03-31 19:36:08.4063|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.TasksController.GetTask (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 453.4759ms.
+2020-03-31 19:36:08.4207|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-03-31 19:36:08.4485|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.TasksController.GetTask (TaskManager) in 543.6663ms
+2020-03-31 19:36:08.4645|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-03-31 19:36:08.4805|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 608.3148ms 200 application/json; charset=utf-8
+2020-03-31 19:36:17.6625|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 HEAD http://localhost:37645/  
+2020-03-31 19:36:17.6765|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 14.0716ms 404 

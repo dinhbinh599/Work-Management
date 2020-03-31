@@ -76,7 +76,7 @@ public class TaskFragment extends Fragment {
             TaskDAO taskDAO = new TaskDAO();
             GetTaskRequest request = new GetTaskRequest();
             request.setUserId(userId);
-            request.setStatusId(0);
+            
             if (RoleConstant.USER.equalsIgnoreCase(userRole)){
                 request.setHandlerId(userId);
             }
@@ -86,7 +86,6 @@ public class TaskFragment extends Fragment {
                     switch (response.code()) {
                         case ResponseCodeConstant.OK: {
                             taskList = response.body().getData();
-                            System.out.println("Task List: " +taskList);
                             taskAdapter = new TaskAdapter(taskList);
                             recyclerView.setAdapter(taskAdapter);
                             Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
