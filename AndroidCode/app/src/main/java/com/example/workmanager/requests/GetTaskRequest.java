@@ -12,7 +12,7 @@ public class GetTaskRequest implements Serializable {
     @SerializedName("endTime")
     String endTime;
     @SerializedName("handlerId")
-    int handlerId;
+    Integer handlerId;
     @SerializedName("statusId")
     int statusId;
 
@@ -52,11 +52,11 @@ public class GetTaskRequest implements Serializable {
         this.endTime = endTime;
     }
 
-    public int getHandlerId() {
+    public Integer getHandlerId() {
         return handlerId;
     }
 
-    public void setHandlerId(int handlerId) {
+    public void setHandlerId(Integer handlerId) {
         this.handlerId = handlerId;
     }
 
