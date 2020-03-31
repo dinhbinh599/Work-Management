@@ -42,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
                     loadFragment(fragment);
                     return true;
                 }
+                case R.id.navigation_group: {
+                    fragment = new GroupFragment();
+                    loadFragment(fragment);
+                    return true;
+                }
             }
             return false;
         };

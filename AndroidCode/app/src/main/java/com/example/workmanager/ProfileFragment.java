@@ -1,6 +1,7 @@
 package com.example.workmanager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,6 +21,8 @@ import com.example.workmanager.daos.UserDAO;
 import com.example.workmanager.dtos.UserDTO;
 import com.example.workmanager.requests.UpdateRequest;
 import com.example.workmanager.responses.UserResponse;
+import com.google.gson.Gson;
+import com.google.gson.TypeAdapter;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,10 +40,15 @@ public class ProfileFragment extends Fragment {
         txtRole = view.findViewById(R.id.txtRole);
         Button btnSave = view.findViewById(R.id.btnSave);
         Button btnChangeRole = view.findViewById(R.id.btnChangeRole);
+        Button btnLogOut = view.findViewById(R.id.btnLogOut);
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("com.example.workmanager_preferences", Context.MODE_PRIVATE);
         Bundle bundle = getArguments();
         int userId = sharedPreferences.getInt("userId",0);
         loadUserProfile(userId);
+        btnLogOut.setOnClickListener((v)->{
+            Intent intent = new Intent(getActivity(),LoginActivity.class);
+            startActivity(intent);
+        });
         btnChangeRole.setOnClickListener((v)-> {
             if(txtRole.getText().toString().equalsIgnoreCase("Role :User")){
                 txtRole.setText("Role :Manager");
@@ -75,6 +83,16 @@ public class ProfileFragment extends Fragment {
                     public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                         if (response.isSuccessful()) {
                             Toast.makeText(getActivity(), "Save success", Toast.LENGTH_SHORT).show();
+                        }else{
+                            TypeAdapter<UserResponse> adapter = new Gson().getAdapter(UserResponse.class);
+                            try{
+                                if(response.errorBody() != null) {
+                                    UserResponse userResponse = adapter.fromJson(response.errorBody().string());
+                                    Toast.makeText(getActivity(), userResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            }catch (Exception e) {
+                                e.printStackTrace();
+                            }
                         }
                     }
 
