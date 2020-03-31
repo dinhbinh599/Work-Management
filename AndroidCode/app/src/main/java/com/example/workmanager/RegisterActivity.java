@@ -19,7 +19,7 @@ import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity {
     private EditText edtUsername,edtPassword,edtConfirmPass,
-                     edtFullname,edtEmail;
+                     edtFullname,edtEmail,edtPhone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,11 +29,12 @@ public class RegisterActivity extends AppCompatActivity {
         edtConfirmPass = (EditText)findViewById(R.id.edtConfirmPass);
         edtFullname = (EditText)findViewById(R.id.edtFullname);
         edtEmail = (EditText)findViewById(R.id.edtEmail);
+        edtPhone = (EditText)findViewById(R.id.edtPhone);
     }
 
     public void clickToRegister(View view){
         boolean check = true;
-        String username,password,fullname,email,validate = "";
+        String username,password,fullname,email,phone,validate = "";
         username = edtUsername.getText().toString();
         if(username.compareTo("") == 0){
             validate += "Username can't be empty\n" ;
@@ -59,9 +60,9 @@ public class RegisterActivity extends AppCompatActivity {
             validate += "Email can't be empty\n" ;
             check = false;
         }
+        phone = edtPhone.getText().toString();
         if(check) {
-            RegisterRequest request = new RegisterRequest(edtUsername.getText().toString(), edtPassword.getText().toString(),
-                    edtFullname.getText().toString(), edtEmail.getText().toString(), 1, 1);
+            RegisterRequest request = new RegisterRequest(username,password,fullname,email,phone);
             UserDAO userDAO = new UserDAO();
             userDAO.register(request, new Callback<UserResponse>() {
                 @Override

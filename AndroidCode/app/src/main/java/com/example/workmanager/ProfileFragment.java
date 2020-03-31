@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.workmanager.constants.ResponseCodeConstant;
 import com.example.workmanager.daos.UserDAO;
+import com.example.workmanager.dtos.UserDTO;
 import com.example.workmanager.requests.UpdateRequest;
 import com.example.workmanager.responses.UserResponse;
 
@@ -25,35 +26,31 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ProfileFragment extends Fragment {
-    EditText edtUsername,edtPassword,edtFullname,edtEmail;
+    EditText edtFullname,edtEmail,edtPhone;
+    TextView txtRole;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
-        edtUsername = view.findViewById(R.id.edtUsername);
-        edtPassword = view.findViewById(R.id.edtPassword);
         edtFullname = view.findViewById(R.id.edtFullname);
         edtEmail = view.findViewById(R.id.edtEmail);
+        edtPhone = view.findViewById(R.id.edtPhone);
+        txtRole = view.findViewById(R.id.txtRole);
         Button btnSave = view.findViewById(R.id.btnSave);
+        Button btnChangeRole = view.findViewById(R.id.btnChangeRole);
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("com.example.workmanager_preferences", Context.MODE_PRIVATE);
         Bundle bundle = getArguments();
         int userId = sharedPreferences.getInt("userId",0);
-        edtUsername.setText(sharedPreferences.getString("username",""));
-        edtPassword.setText(sharedPreferences.getString("password",""));
-        edtFullname.setText(sharedPreferences.getString("fullname",""));
-        edtEmail.setText(sharedPreferences.getString("email",""));
+        loadUserProfile(userId);
+        btnChangeRole.setOnClickListener((v)-> {
+            if(txtRole.getText().toString().equalsIgnoreCase("Role :User")){
+                txtRole.setText("Role :Manager");
+            }else if(txtRole.getText().toString().equalsIgnoreCase("Role :Manager")){
+                txtRole.setText("Role :User");
+            }
+        });
         btnSave.setOnClickListener((v)-> {
             boolean check = true;
-            String username,password,fullname,email,validate = "";
-            username = edtUsername.getText().toString();
-            if(username.compareTo("") == 0){
-                validate += "Username can't be empty\n" ;
-                check = false;
-            }
-            password = edtPassword.getText().toString();
-            if(password.compareTo("") == 0){
-                validate += "Password can't be empty\n" ;
-                check = false;
-            }
+            String fullname,email,phone,role,validate = "";
             fullname = edtFullname.getText().toString();
             if(fullname.compareTo("") == 0){
                 validate += "Fullname can't be empty\n" ;
@@ -64,19 +61,20 @@ public class ProfileFragment extends Fragment {
                 validate += "Email can't be empty\n" ;
                 check = false;
             }
+            phone = edtPhone.getText().toString();
+            if(txtRole.getText().toString().equalsIgnoreCase("Role :User")){
+                role = "user";
+            }else{
+                role = "manager";
+            }
             if(check) {
-                UpdateRequest request = new UpdateRequest(userId, edtUsername.getText().toString(), edtPassword.getText().toString(),
-                        edtFullname.getText().toString(), edtEmail.getText().toString());
+                UpdateRequest request = new UpdateRequest(userId,fullname,email,phone,role);
                 UserDAO userDAO = new UserDAO();
                 userDAO.update(request, new Callback<UserResponse>() {
                     @Override
                     public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                         if (response.isSuccessful()) {
                             Toast.makeText(getActivity(), "Save success", Toast.LENGTH_SHORT).show();
-                            sharedPreferences.edit().putString("username", edtUsername.getText().toString()).commit();
-                            sharedPreferences.edit().putString("password", edtPassword.getText().toString()).commit();
-                            sharedPreferences.edit().putString("fullname", edtFullname.getText().toString()).commit();
-                            sharedPreferences.edit().putString("email", edtEmail.getText().toString()).commit();
                         }
                     }
 
@@ -88,5 +86,28 @@ public class ProfileFragment extends Fragment {
             }else Toast.makeText(getActivity(), validate, Toast.LENGTH_SHORT).show();
         });
         return view;
+    }
+
+    private void loadUserProfile (int userId) {
+        UserDAO userDAO = new UserDAO();
+        userDAO.getUserProfile(userId, new Callback<UserResponse>() {
+            @Override
+            public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+                if(response.isSuccessful()){
+                    UserDTO userDTO = response.body().getData();
+                    edtEmail.setText(userDTO.getEmail());
+                    edtFullname.setText(userDTO.getFullName());
+                    edtPhone.setText(userDTO.getPhone());
+                    txtRole.setText("Role :" + userDTO.getRoleName());
+                }else{
+                    Toast.makeText(getContext(), response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserResponse> call, Throwable t) {
+                Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

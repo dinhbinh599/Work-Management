@@ -5,24 +5,23 @@ import com.google.gson.annotations.SerializedName;
 public class UpdateRequest {
     @SerializedName("userId")
     public int userId;
-    @SerializedName("username")
-    public String username;
-    @SerializedName("password")
-    public String password;
     @SerializedName("fullname")
     public String fullname;
     @SerializedName("email")
     public String email;
-
+    @SerializedName("phone")
+    public String phone;
+    @SerializedName("roleName")
+    public String roleName;
     public UpdateRequest() {
     }
 
-    public UpdateRequest(int userId, String username, String password, String fullname, String email) {
+    public UpdateRequest(int userId,String fullname, String email, String phone, String roleName) {
         this.userId = userId;
-        this.username = username;
-        this.password = password;
         this.fullname = fullname;
         this.email = email;
+        this.phone = phone;
+        this.roleName = roleName;
     }
 
     public int getUserId() {
@@ -31,22 +30,6 @@ public class UpdateRequest {
 
     public void setUserId(int userId) {
         this.userId = userId;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getFullname() {
@@ -63,5 +46,21 @@ public class UpdateRequest {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 }

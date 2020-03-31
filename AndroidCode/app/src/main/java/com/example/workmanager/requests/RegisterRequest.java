@@ -11,21 +11,18 @@ public class RegisterRequest {
     public String fullname;
     @SerializedName("email")
     public String email;
-    @SerializedName("roleId")
-    public int roleId;
-    @SerializedName("groupId")
-    public int groupId;
+    @SerializedName("phone")
+    public String phone;
 
     public RegisterRequest() {
     }
 
-    public RegisterRequest(String username, String password, String fullname, String email, int roleId, int groupId) {
+    public RegisterRequest(String username, String password, String fullname, String email, String phone) {
         this.username = username;
         this.password = password;
         this.fullname = fullname;
         this.email = email;
-        this.roleId = roleId;
-        this.groupId = groupId;
+        this.phone = phone;
     }
 
     public String getUsername() {
@@ -60,19 +57,11 @@ public class RegisterRequest {
         this.email = email;
     }
 
-    public int getRoleId() {
-        return roleId;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setRoleId(int roleId) {
-        this.roleId = roleId;
-    }
-
-    public int getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(int groupId) {
-        this.groupId = groupId;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

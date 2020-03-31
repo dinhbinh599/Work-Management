@@ -36,6 +36,7 @@ namespace TaskManager.Models.Repositories
             return _dbSet.Where(x => x.UserId == id).Include(x => x.Role).Include(x => x.Group).Select(x => new User
             {
                 UserId = x.UserId,
+                Username = x.Username,
                 GroupId = x.GroupId,
                 RoleId = x.RoleId,
                 Fullname = x.Fullname,

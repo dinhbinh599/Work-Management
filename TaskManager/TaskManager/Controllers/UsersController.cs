@@ -244,7 +244,7 @@ namespace TaskManager.Controllers
         }
         [HttpPost]
         [Route("register")]
-        public IActionResult Register([FromBody]RequestRegister data)
+        public IActionResult Register(RequestRegister data)
         {
             if (!ModelState.IsValid)
             {
@@ -253,28 +253,32 @@ namespace TaskManager.Controllers
             User user = new User();
             user.Username = data.Username;
             user.PasswordHash = data.Password;
-            user.RoleId = data.RoleId;
+            user.RoleId = 3;
             user.Fullname = data.Fullname;
             user.Email = data.Email;
-            user.GroupId = data.GroupId;
-            var result = _context.User.Add(user);
+            user.Phone = data.Phone;
+            user.GroupId = null;
+            user.ModifyTime = DateTime.Now;
+            _context.User.Add(user);
             _context.SaveChanges();
             return Ok(new ApiResult
             {
-                Message = "Ok",
-                Data = result,
+                Message = "Ok"
             });
         }
 
         [HttpPut]
         [Route("Update")]
-        public IActionResult UpdateUser([FromBody]RequestUpdateUser data)
+        public IActionResult UpdateUser(RequestUpdateUser data)
         {
             User user = _context.User.Where(c => (c.UserId == data.UserId)).FirstOrDefault();
-            user.Username = data.Username;
-            user.PasswordHash = data.Password;
+            var roleService = GetService<RoleService>();
+            var role = roleService.GetRoleByName(data.RoleName);
             user.Fullname = data.Fullname;
             user.Email = data.Email;
+            user.Phone = data.Phone;
+            user.RoleId = role.RoleId;
+            user.ModifyTime = DateTime.Now;
             _context.Entry(user).State = EntityState.Modified;
             _context.SaveChanges();
             return Ok(new ApiResult
