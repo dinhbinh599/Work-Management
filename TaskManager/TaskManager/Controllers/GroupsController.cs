@@ -99,6 +99,7 @@ namespace TaskManager.Controllers
                     });
                 }
                 var service = GetService<GroupService>();
+                request.CreatedTime = DateTime.Now;
                 var group = service.CreateGroup(request);
                 var result = MapTo<GroupViewModel>(group);
                 _unitOfWork.SaveChanges();
