@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.workmanager.adapters.GroupAdapter;
+import com.example.workmanager.constants.RoleConstant;
 import com.example.workmanager.daos.GroupDAO;
 import com.example.workmanager.dtos.GroupDTO;
 import com.example.workmanager.dtos.UserDTO;
@@ -36,13 +39,19 @@ public class GroupFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_group, container, false);
+        Button btnCreateGroup = view.findViewById(R.id.btnCreateGroup);
+        Button btnSearch = view.findViewById(R.id.btnSearch);
+        EditText edtSearch = view.findViewById(R.id.edtSearch);
         recyclerView = view.findViewById(R.id.wgRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("com.example.workmanager_preferences", Context.MODE_PRIVATE);
         String userRole = sharedPreferences.getString("userRole","");
-        if(userRole.equalsIgnoreCase("Admin")){
+        if(userRole.equalsIgnoreCase(RoleConstant.ADMIN)){
             loadAllGroup();
         }
+        btnCreateGroup.setOnClickListener((v)->{
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new GroupCreationFragment()).commit();
+        });
         return view;
     }
 
@@ -57,10 +66,9 @@ public class GroupFragment extends Fragment {
                 if(response.isSuccessful()){
                     List<GroupDTO> groupList = response.body().getData();
                     groupAdapter = new GroupAdapter(groupList);
-                    Toast.makeText(getActivity(), groupList.get(0).getGroupId() + "",Toast.LENGTH_LONG).show();
                     recyclerView.setAdapter(groupAdapter);
                     progressDialog.dismiss();
-                    Toast.makeText(getActivity(),groupList.size() + "",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Count :" + groupAdapter.getItemCount(),Toast.LENGTH_SHORT).show();
                 }
             }
 

@@ -1,5 +1,6 @@
 package com.example.workmanager;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -17,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.workmanager.constants.ResponseCodeConstant;
+import com.example.workmanager.constants.RoleConstant;
 import com.example.workmanager.daos.UserDAO;
 import com.example.workmanager.dtos.UserDTO;
 import com.example.workmanager.requests.UpdateRequest;
@@ -42,7 +44,6 @@ public class ProfileFragment extends Fragment {
         Button btnChangeRole = view.findViewById(R.id.btnChangeRole);
         Button btnLogOut = view.findViewById(R.id.btnLogOut);
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("com.example.workmanager_preferences", Context.MODE_PRIVATE);
-        Bundle bundle = getArguments();
         int userId = sharedPreferences.getInt("userId",0);
         loadUserProfile(userId);
         btnLogOut.setOnClickListener((v)->{
@@ -50,10 +51,12 @@ public class ProfileFragment extends Fragment {
             startActivity(intent);
         });
         btnChangeRole.setOnClickListener((v)-> {
-            if(txtRole.getText().toString().equalsIgnoreCase("Role :User")){
-                txtRole.setText("Role :Manager");
-            }else if(txtRole.getText().toString().equalsIgnoreCase("Role :Manager")){
-                txtRole.setText("Role :User");
+            if(txtRole.getText().toString().equalsIgnoreCase(RoleConstant.ADMIN)){
+                txtRole.setText("User");
+            }else if(txtRole.getText().toString().equalsIgnoreCase(RoleConstant.USER)){
+                txtRole.setText("Manager");
+            }else if(txtRole.getText().toString().equalsIgnoreCase(RoleConstant.MANAGER)){
+                txtRole.setText("Admin");
             }
         });
         btnSave.setOnClickListener((v)-> {
@@ -70,10 +73,12 @@ public class ProfileFragment extends Fragment {
                 check = false;
             }
             phone = edtPhone.getText().toString();
-            if(txtRole.getText().toString().equalsIgnoreCase("Role :User")){
+            if(txtRole.getText().toString().equalsIgnoreCase(RoleConstant.USER)){
                 role = "user";
-            }else{
+            }else if(txtRole.getText().toString().equalsIgnoreCase(RoleConstant.MANAGER)){
                 role = "manager";
+            }else{
+                role = "admin";
             }
             if(check) {
                 UpdateRequest request = new UpdateRequest(userId,fullname,email,phone,role);
@@ -107,6 +112,8 @@ public class ProfileFragment extends Fragment {
     }
 
     private void loadUserProfile (int userId) {
+        ProgressDialog progressDialog = new ProgressDialog(getActivity());
+        progressDialog.show();
         UserDAO userDAO = new UserDAO();
         userDAO.getUserProfile(userId, new Callback<UserResponse>() {
             @Override
@@ -116,14 +123,17 @@ public class ProfileFragment extends Fragment {
                     edtEmail.setText(userDTO.getEmail());
                     edtFullname.setText(userDTO.getFullName());
                     edtPhone.setText(userDTO.getPhone());
-                    txtRole.setText("Role :" + userDTO.getRoleName());
+                    txtRole.setText(userDTO.getRoleName());
+                    progressDialog.dismiss();
                 }else{
+                    progressDialog.dismiss();
                     Toast.makeText(getContext(), response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<UserResponse> call, Throwable t) {
+                progressDialog.dismiss();
                 Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
