@@ -246,14 +246,35 @@ namespace TaskManager.Controllers
         [Route("register")]
         public IActionResult Register(RequestRegister data)
         {
+            var service = GetService<UserService>();
+            var roleService = GetService<RoleService>();
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+            var existedUser = service.GetUserByUsername(data.Username);
+            if (existedUser != null)
+            {
+                return BadRequest(new ApiResult
+                {
+                    Message = "Username existed"
+                });
+            }
             User user = new User();
             user.Username = data.Username;
             user.PasswordHash = data.Password;
-            user.RoleId = 3;
+            var role = roleService.GetRoleByName(RoleName.USER);
+            if (role != null)
+            {
+                user.RoleId = role.RoleId;
+            }
+            else
+            {
+                return BadRequest(new ApiResult
+                {
+                    Message = "Role not found"
+                });
+            }
             user.Fullname = data.Fullname;
             user.Email = data.Email;
             user.Phone = data.Phone;
@@ -273,11 +294,21 @@ namespace TaskManager.Controllers
         {
             User user = _context.User.Where(c => (c.UserId == data.UserId)).FirstOrDefault();
             var roleService = GetService<RoleService>();
-            var role = roleService.GetRoleByName(data.RoleName);
             user.Fullname = data.Fullname;
             user.Email = data.Email;
             user.Phone = data.Phone;
-            user.RoleId = role.RoleId;
+            var role = roleService.GetRoleByName(data.RoleName);
+            if (role != null)
+            {
+                user.RoleId = role.RoleId;
+            }
+            else
+            {
+                return BadRequest(new ApiResult
+                {
+                    Message = "Role not found"
+                });
+            }
             user.ModifyTime = DateTime.Now;
             _context.Entry(user).State = EntityState.Modified;
             _context.SaveChanges();

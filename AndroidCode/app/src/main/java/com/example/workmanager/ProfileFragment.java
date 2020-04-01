@@ -1,6 +1,8 @@
 package com.example.workmanager;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,10 +18,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.workmanager.constants.ResponseCodeConstant;
+import com.example.workmanager.constants.RoleConstant;
 import com.example.workmanager.daos.UserDAO;
 import com.example.workmanager.dtos.UserDTO;
 import com.example.workmanager.requests.UpdateRequest;
 import com.example.workmanager.responses.UserResponse;
+import com.google.gson.Gson;
+import com.google.gson.TypeAdapter;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,15 +42,21 @@ public class ProfileFragment extends Fragment {
         txtRole = view.findViewById(R.id.txtRole);
         Button btnSave = view.findViewById(R.id.btnSave);
         Button btnChangeRole = view.findViewById(R.id.btnChangeRole);
+        Button btnLogOut = view.findViewById(R.id.btnLogOut);
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("com.example.workmanager_preferences", Context.MODE_PRIVATE);
-        Bundle bundle = getArguments();
         int userId = sharedPreferences.getInt("userId",0);
         loadUserProfile(userId);
+        btnLogOut.setOnClickListener((v)->{
+            Intent intent = new Intent(getActivity(),LoginActivity.class);
+            startActivity(intent);
+        });
         btnChangeRole.setOnClickListener((v)-> {
-            if(txtRole.getText().toString().equalsIgnoreCase("Role :User")){
-                txtRole.setText("Role :Manager");
-            }else if(txtRole.getText().toString().equalsIgnoreCase("Role :Manager")){
-                txtRole.setText("Role :User");
+            if(txtRole.getText().toString().equalsIgnoreCase(RoleConstant.ADMIN)){
+                txtRole.setText("User");
+            }else if(txtRole.getText().toString().equalsIgnoreCase(RoleConstant.USER)){
+                txtRole.setText("Manager");
+            }else if(txtRole.getText().toString().equalsIgnoreCase(RoleConstant.MANAGER)){
+                txtRole.setText("Admin");
             }
         });
         btnSave.setOnClickListener((v)-> {
@@ -62,10 +73,12 @@ public class ProfileFragment extends Fragment {
                 check = false;
             }
             phone = edtPhone.getText().toString();
-            if(txtRole.getText().toString().equalsIgnoreCase("Role :User")){
+            if(txtRole.getText().toString().equalsIgnoreCase(RoleConstant.USER)){
                 role = "user";
-            }else{
+            }else if(txtRole.getText().toString().equalsIgnoreCase(RoleConstant.MANAGER)){
                 role = "manager";
+            }else{
+                role = "admin";
             }
             if(check) {
                 UpdateRequest request = new UpdateRequest(userId,fullname,email,phone,role);
@@ -75,6 +88,16 @@ public class ProfileFragment extends Fragment {
                     public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                         if (response.isSuccessful()) {
                             Toast.makeText(getActivity(), "Save success", Toast.LENGTH_SHORT).show();
+                        }else{
+                            TypeAdapter<UserResponse> adapter = new Gson().getAdapter(UserResponse.class);
+                            try{
+                                if(response.errorBody() != null) {
+                                    UserResponse userResponse = adapter.fromJson(response.errorBody().string());
+                                    Toast.makeText(getActivity(), userResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            }catch (Exception e) {
+                                e.printStackTrace();
+                            }
                         }
                     }
 
@@ -89,6 +112,8 @@ public class ProfileFragment extends Fragment {
     }
 
     private void loadUserProfile (int userId) {
+        ProgressDialog progressDialog = new ProgressDialog(getActivity());
+        progressDialog.show();
         UserDAO userDAO = new UserDAO();
         userDAO.getUserProfile(userId, new Callback<UserResponse>() {
             @Override
@@ -98,14 +123,17 @@ public class ProfileFragment extends Fragment {
                     edtEmail.setText(userDTO.getEmail());
                     edtFullname.setText(userDTO.getFullName());
                     edtPhone.setText(userDTO.getPhone());
-                    txtRole.setText("Role :" + userDTO.getRoleName());
+                    txtRole.setText(userDTO.getRoleName());
+                    progressDialog.dismiss();
                 }else{
+                    progressDialog.dismiss();
                     Toast.makeText(getContext(), response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<UserResponse> call, Throwable t) {
+                progressDialog.dismiss();
                 Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/edtGroupName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Group Name" />
+
+    <EditText
+        android:id="@+id/edtDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtGroupName"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Description" />
+    <Button
+        android:id="@+id/btnCreate"
+        android:layout_below="@+id/edtDescription"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:textSize="18sp"
+        android:background="@drawable/button_rectangle_green"
+        android:text="Create"
+        android:layout_gravity="center"/>
+</LinearLayout>

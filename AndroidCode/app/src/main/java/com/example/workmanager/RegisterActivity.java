@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -12,6 +13,10 @@ import com.example.workmanager.constants.ResponseCodeConstant;
 import com.example.workmanager.daos.UserDAO;
 import com.example.workmanager.requests.RegisterRequest;
 import com.example.workmanager.responses.UserResponse;
+import com.google.gson.Gson;
+import com.google.gson.TypeAdapter;
+
+import java.lang.reflect.Type;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,6 +37,11 @@ public class RegisterActivity extends AppCompatActivity {
         edtPhone = (EditText)findViewById(R.id.edtPhone);
     }
 
+    public void clickToLoginPage(View view){
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
+
     public void clickToRegister(View view){
         boolean check = true;
         String username,password,fullname,email,phone,validate = "";
@@ -45,7 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
             validate += "Password can't be empty\n" ;
             check = false;
         }else{
-            if(password.compareTo(edtConfirmPass.getText().toString()) != 0){
+            if(!password.equalsIgnoreCase(edtConfirmPass.getText().toString())){
                 validate += "Password and ConfirmPass is not the same\n" ;
                 check = false;
             }
@@ -71,6 +81,16 @@ public class RegisterActivity extends AppCompatActivity {
                         Toast.makeText(RegisterActivity.this, "Register success", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                         startActivity(intent);
+                    }else{
+                        TypeAdapter<UserResponse> adapter = new Gson().getAdapter(UserResponse.class);
+                        try{
+                            if(response.errorBody() != null) {
+                                UserResponse userResponse = adapter.fromJson(response.errorBody().string());
+                                Toast.makeText(RegisterActivity.this, userResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        }catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
 
