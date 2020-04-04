@@ -37,7 +37,4 @@ public class UserDAO {
     public void getUserProfile(int userId, Callback<UserResponse> callback){
         userAPI.getUserById(userId).enqueue(callback);
     }
-    public void getAllUser(GetUserRequest request, Callback<GetUserResponse> callback){
-        userAPI.getAllUser(request).enqueue(callback);
-    }
 }
