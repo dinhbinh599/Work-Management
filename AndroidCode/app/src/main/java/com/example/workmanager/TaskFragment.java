@@ -115,4 +115,13 @@ public class TaskFragment extends Fragment {
             Log.d("Task Fragment Exception", e.getMessage());
         }
     }
+
+    public void addTaskListener(){
+        btnAddTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+    }
 }

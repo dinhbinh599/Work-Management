@@ -1,8 +1,10 @@
 package com.example.workmanager.apis;
 
+import com.example.workmanager.requests.GetUserRequest;
 import com.example.workmanager.requests.LoginRequest;
 import com.example.workmanager.requests.RegisterRequest;
 import com.example.workmanager.requests.UpdateRequest;
+import com.example.workmanager.responses.GetUserResponse;
 import com.example.workmanager.responses.UserResponse;
 
 import retrofit2.Call;
@@ -25,4 +27,7 @@ public interface UserAPI {
 
     @GET("api/Users/{id}")
     Call<UserResponse> getUserById(@Path("id") int id);
+
+    @POST("api/Users/all")
+    Call<GetUserResponse> getAllUser(@Body GetUserRequest request);
 }
