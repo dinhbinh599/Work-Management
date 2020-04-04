@@ -26,6 +26,11 @@ public class UserDAO {
     public void register(RegisterRequest request, Callback<UserResponse> callback){
         userAPI.register(request).enqueue(callback);
     }
+    public void getAllUser(GetUserRequest request, Callback<GetUserResponse> callBack) {
+        userAPI.getAllUser(request).enqueue(callBack);
+    }
+
+
     public void update(UpdateRequest request, Callback<UserResponse> callback){
         userAPI.update(request).enqueue(callback);
     }

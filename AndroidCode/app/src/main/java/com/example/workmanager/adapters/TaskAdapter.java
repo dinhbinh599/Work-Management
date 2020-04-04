@@ -2,6 +2,7 @@ package com.example.workmanager.adapters;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +11,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.workmanager.MainActivity;
 import com.example.workmanager.R;
+import com.example.workmanager.TaskDetailFragment;
 import com.example.workmanager.dtos.TaskDTO;
 
 import java.text.SimpleDateFormat;
@@ -70,7 +73,14 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskViewHolder> {
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                TaskDetailFragment detailFragment = new TaskDetailFragment();
+                Bundle bundle = new Bundle();
+                bundle.putInt("taskId", taskList.get(position).taskId);
+                detailFragment.setArguments(bundle);
+                MainActivity activity =(MainActivity) v.getContext();
+                activity.getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragmentContainer, detailFragment).addToBackStack("tasks")
+                        .commit();
             }
         });
     }

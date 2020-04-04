@@ -41,6 +41,7 @@ public class ProfileFragment extends Fragment {
         edtPhone = view.findViewById(R.id.edtPhone);
         txtRole = view.findViewById(R.id.txtRole);
         Button btnSave = view.findViewById(R.id.btnSave);
+
         Button btnLogOut = view.findViewById(R.id.btnLogOut);
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("com.example.workmanager_preferences", Context.MODE_PRIVATE);
         int userId = sharedPreferences.getInt("userId",0);
@@ -49,6 +50,7 @@ public class ProfileFragment extends Fragment {
             Intent intent = new Intent(getActivity(),LoginActivity.class);
             startActivity(intent);
         });
+
         btnSave.setOnClickListener((v)-> {
             boolean check = true;
             String fullname,email,phone,role,validate = "";

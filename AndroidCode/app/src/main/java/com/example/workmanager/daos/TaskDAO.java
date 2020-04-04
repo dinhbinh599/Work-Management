@@ -2,8 +2,11 @@ package com.example.workmanager.daos;
 
 import com.example.workmanager.apis.RetrofitClient;
 import com.example.workmanager.apis.TaskAPI;
+import com.example.workmanager.requests.CreateTaskRequest;
 import com.example.workmanager.requests.GetTaskRequest;
+import com.example.workmanager.requests.UpdateTaskRequest;
 import com.example.workmanager.responses.GetTaskResponse;
+import com.example.workmanager.responses.TaskResponse;
 
 import retrofit2.Callback;
 
@@ -17,6 +20,18 @@ public class TaskDAO {
 
     public void getAllTask(GetTaskRequest request, Callback<GetTaskResponse> callBack){
        taskAPI.getAllTask(request).enqueue(callBack);
+    }
+    public void getTaskDetail(int id, Callback<TaskResponse> callBack) {
+        taskAPI.getTaskById(id).enqueue(callBack);
+    }
+    public void deleteTask(int id, Callback<TaskResponse> callBack) {
+        taskAPI.deleteTask(id).enqueue(callBack);
+    }
+    public void createTask(CreateTaskRequest request, Callback<TaskResponse> callBack) {
+        taskAPI.createTask(request).enqueue(callBack);
+    }
+    public void updateTask(int id, UpdateTaskRequest request, Callback<TaskResponse> callBack) {
+        taskAPI.updateTask(id, request).enqueue(callBack);
     }
 
 }
