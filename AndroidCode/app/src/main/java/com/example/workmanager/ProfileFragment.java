@@ -41,7 +41,6 @@ public class ProfileFragment extends Fragment {
         edtPhone = view.findViewById(R.id.edtPhone);
         txtRole = view.findViewById(R.id.txtRole);
         Button btnSave = view.findViewById(R.id.btnSave);
-        Button btnChangeRole = view.findViewById(R.id.btnChangeRole);
         Button btnLogOut = view.findViewById(R.id.btnLogOut);
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("com.example.workmanager_preferences", Context.MODE_PRIVATE);
         int userId = sharedPreferences.getInt("userId",0);
@@ -49,15 +48,6 @@ public class ProfileFragment extends Fragment {
         btnLogOut.setOnClickListener((v)->{
             Intent intent = new Intent(getActivity(),LoginActivity.class);
             startActivity(intent);
-        });
-        btnChangeRole.setOnClickListener((v)-> {
-            if(txtRole.getText().toString().equalsIgnoreCase(RoleConstant.ADMIN)){
-                txtRole.setText("User");
-            }else if(txtRole.getText().toString().equalsIgnoreCase(RoleConstant.USER)){
-                txtRole.setText("Manager");
-            }else if(txtRole.getText().toString().equalsIgnoreCase(RoleConstant.MANAGER)){
-                txtRole.setText("Admin");
-            }
         });
         btnSave.setOnClickListener((v)-> {
             boolean check = true;
@@ -73,13 +63,7 @@ public class ProfileFragment extends Fragment {
                 check = false;
             }
             phone = edtPhone.getText().toString();
-            if(txtRole.getText().toString().equalsIgnoreCase(RoleConstant.USER)){
-                role = "user";
-            }else if(txtRole.getText().toString().equalsIgnoreCase(RoleConstant.MANAGER)){
-                role = "manager";
-            }else{
-                role = "admin";
-            }
+            role = txtRole.getText().toString();
             if(check) {
                 UpdateRequest request = new UpdateRequest(userId,fullname,email,phone,role);
                 UserDAO userDAO = new UserDAO();

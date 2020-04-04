@@ -22,4 +22,8 @@ public class GroupDAO {
         groupAPI.getAllGroup().enqueue(callback);
     }
 
+    public void getGroupDetail(int groupId, Callback<GroupResponse> callback){
+        groupAPI.getGroup(groupId).enqueue(callback);
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.example.workmanager.adapters;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.workmanager.GroupDetailFragment;
+import com.example.workmanager.MainActivity;
 import com.example.workmanager.R;
 import com.example.workmanager.dtos.GroupDTO;
 
@@ -36,6 +39,14 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupViewHolder> {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         holder.getTxtCreatedTime().setText(sdf.format(groupDTO.getCreatedTime()));
         holder.getTxtGroupId().setText(groupDTO.getGroupId()+"");
+        holder.itemView.setOnClickListener((v)->{
+            GroupDetailFragment fragment = new GroupDetailFragment();
+            Bundle bundle = new Bundle();
+            bundle.putInt("groupId",groupDTO.getGroupId());
+            fragment.setArguments(bundle);
+            MainActivity mainActivity = (MainActivity)v.getContext();
+            mainActivity.getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,fragment).commit();
+        });
     }
 
     @Override
