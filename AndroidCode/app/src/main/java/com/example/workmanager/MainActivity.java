@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
+import com.example.workmanager.constants.RoleConstant;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -47,10 +49,18 @@ public class MainActivity extends AppCompatActivity {
                     loadFragment(fragment);
                     return true;
                 }
+                case R.id.navigation_user: {
+                    fragment = new UserFragment();
+                    loadFragment(fragment);
+                    return true;
+                }
             }
             return false;
         };
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        if(!userRole.equalsIgnoreCase(RoleConstant.ADMIN)){
+            bottomNavigationView.getMenu().findItem(R.id.navigation_user).setVisible(false);
+        }
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
     }
 

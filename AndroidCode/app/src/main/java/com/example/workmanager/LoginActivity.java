@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
                     sharedPreferences.edit().putString("fullname",response.body().getData().getFullName()).commit();
                     sharedPreferences.edit().putString("email",response.body().getData().getEmail()).commit();
                     sharedPreferences.edit().putString("userRole", response.body().getData().getRoleName()).commit();
-                    sharedPreferences.edit().putInt("groupId", response.body().getData().getGroupId() != null ? response.body().getData().getGroupId().intValue() : 0);
+                    sharedPreferences.edit().putInt("groupId", response.body().getData().getGroupId() != null ? response.body().getData().getGroupId().intValue() : 0).commit();
                     Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                     startActivity(intent);
                 }

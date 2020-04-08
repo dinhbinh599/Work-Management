@@ -15,10 +15,10 @@ public class CreateGroupRequest implements Serializable {
     public CreateGroupRequest() {
     }
 
-    public CreateGroupRequest(int userId, String description, String name) {
+    public CreateGroupRequest(int userId, String name, String description) {
         this.userId = userId;
-        this.description = description;
         this.name = name;
+        this.description = description;
     }
 
     public int getUserId() {
