@@ -26,4 +26,8 @@ public class GroupDAO {
         groupAPI.getGroup(groupId).enqueue(callback);
     }
 
+    public void deleteGroup(int groupId, Callback<GroupResponse> callback){
+        groupAPI.deleteGroup(groupId).enqueue(callback);
+    }
+
 }

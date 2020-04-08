@@ -82,110 +82,6 @@ namespace TaskManager.Controllers
 
         }
 
-        // PUT: api/Users/5
-        [HttpPut("{id}")]
-        public IActionResult EditUser(int id, UserEditViewModel model)
-        {
-            try
-            {
-                var service = GetService<UserService>();
-                var roleService = GetService<RoleService>();
-                var role = roleService.GetRoleByName(model.RoleName);
-                if(role != null)
-                {
-                    model.RoleId = role.RoleId;
-                }
-                else
-                {
-                    return BadRequest(new ApiResult
-                    {
-                        Message = ResultMessage.NotFound
-                    });
-                }
-                if(model.GroupId != null)
-                {
-                    var groupService = GetService<GroupService>();
-                    var group = groupService.GetGroupById(model.GroupId ?? 0);
-                    if(group == null)
-                    {
-                        return BadRequest(new ApiResult
-                        {
-                            Message = ResultMessage.NotFound + " Group"
-                        });
-                    }
-                }
-                    
-                var result = service.EditUser(id, model);
-                _unitOfWork.SaveChanges();
-                if (result == null)
-                {
-                    return BadRequest(new ApiResult
-                    {
-                        Message = ResultMessage.NotFound
-                    });
-                }
-                return Ok(new ApiResult
-                {
-                    Data = result,
-                    Message = ResultMessage.Success,
-                });
-            }
-            catch (Exception e)
-            {
-                _logger.Error(e, e.Message);
-                return Error(new ApiResult
-                {
-                    Data = null,
-                    Message = ResultMessage.Error
-                }); ;
-            }
-        }
-
-        // POST: api/Users
-        [HttpPost]
-        public IActionResult CreateUser(UserCreateViewModel model)
-        {
-            try
-            {
-                var service = GetService<UserService>();
-                var roleService = GetService<RoleService>();
-                var role = roleService.GetRoleByName(RoleName.USER);
-                if(role != null)
-                {
-                    model.RoleId = role.RoleId;
-                }
-                else
-                {
-                    throw new Exception("Role not found");
-                }
-                var existedUser = service.GetUserByUsername(model.Username);
-                if(existedUser != null)
-                {
-                    return BadRequest(new ApiResult
-                    {
-                        Message = "Username existed"
-                    });
-                }
-                var user = service.CreateUser(model);
-                var result = MapTo<UserViewModel>(user);
-                _unitOfWork.SaveChanges();
-                return Created($"/api/Users?id={user.UserId}", new ApiResult
-                {
-                    Data = result,
-                    Message = ResultMessage.Success
-                });
-            }
-            catch (Exception e)
-            {
-                _logger.Error(e, e.Message);
-                return Error(new ApiResult
-                {
-                    Message = ResultMessage.Error
-                });
-            }
-
-        }
-
         // DELETE: api/Users/5
         [HttpDelete("{id}")]
         public IActionResult DeleteUser(int id)
@@ -308,6 +204,19 @@ namespace TaskManager.Controllers
                 {
                     Message = "Role not found"
                 });
+            }
+            if (data.GroupId != null)
+            {
+                var groupService = GetService<GroupService>();
+                var group = groupService.GetGroupById(data.GroupId ?? 0);
+                if (group == null)
+                {
+                    return BadRequest(new ApiResult
+                    {
+                        Message = ResultMessage.NotFound + " Group"
+                    });
+                }
+                user.GroupId = data.GroupId;
             }
             user.ModifyTime = DateTime.Now;
             _context.Entry(user).State = EntityState.Modified;

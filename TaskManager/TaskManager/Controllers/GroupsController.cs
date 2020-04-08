@@ -121,18 +121,25 @@ namespace TaskManager.Controllers
 
         // DELETE: api/Groups/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Group>> DeleteGroup(int id)
+        public IActionResult DeleteGroup(int id)
         {
-            var @group = await _context.Group.FindAsync(id);
-            if (@group == null)
+
+            var groupService = GetService<GroupService>();
+            var group = groupService.GetGroupById(id);
+            if (group == null)
             {
-                return NotFound();
+                return NotFound(new ApiResult
+                {
+                    Message = ResultMessage.NotFound + " group"
+                });
             }
-
-            _context.Group.Remove(@group);
-            await _context.SaveChangesAsync();
-
-            return @group;
+            _context.Group.Remove(group);
+            _context.SaveChanges();
+            
+            return Ok(new ApiResult
+            {
+                Message = ResultMessage.Success
+            });
         }
 
         private bool GroupExists(int id)

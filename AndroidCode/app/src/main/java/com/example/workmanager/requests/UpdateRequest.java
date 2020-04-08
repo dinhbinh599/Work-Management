@@ -13,6 +13,9 @@ public class UpdateRequest {
     public String phone;
     @SerializedName("roleName")
     public String roleName;
+    @SerializedName("groupId")
+    public Integer groupId;
+
     public UpdateRequest() {
     }
 
@@ -62,5 +65,13 @@ public class UpdateRequest {
 
     public void setRoleName(String roleName) {
         this.roleName = roleName;
+    }
+
+    public Integer getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(Integer groupId) {
+        this.groupId = groupId;
     }
 }
