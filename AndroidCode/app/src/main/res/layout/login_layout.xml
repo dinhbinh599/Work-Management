@@ -5,9 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Task"
+        android:textColor="@color/colorBlue"
+        android:layout_marginTop="100dp"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Management"
+        android:layout_below="@+id/text"
+        android:textColor="@color/colorBlue"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:gravity="center" />
+
     <EditText
         android:id="@+id/edtUser"
         android:hint="Username"
+        android:drawableLeft="@drawable/ic_profile"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -19,6 +41,7 @@
     <EditText
         android:id="@+id/edtPassword"
         android:hint="Password"
+        android:drawableLeft="@drawable/ic_lock_open"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:ems="10"

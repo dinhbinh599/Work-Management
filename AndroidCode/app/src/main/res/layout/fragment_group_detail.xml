@@ -7,12 +7,14 @@
         android:id="@+id/btnDeleteGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/button_rectangle_green"
         android:text="Delete this group" />
 
     <TextView
         android:id="@+id/txtGroupName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/colorBlue"
         android:textStyle="bold"
         android:gravity="center"
         android:textSize="40dp"
@@ -20,9 +22,10 @@
 
     <TextView
         android:id="@+id/txtCreatedTime"
-        android:layout_width="match_parent"
+        android:drawableRight="@drawable/ic_clock"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="right"
+        android:layout_gravity="right"
         android:textSize="25dp"
         android:text="Created Time" />
 
@@ -32,6 +35,7 @@
         android:layout_height="wrap_content"
         android:textSize="25dp"
         android:text="Description"
+        android:drawableLeft="@drawable/ic_description"
         android:textColor="@color/colorPrimary"/>
 
     <TextView

@@ -111,7 +111,7 @@ public class UserDetailFragment extends Fragment {
                         if(userDTO.getGroupId() != null){
                             edtGroup.setText(userDTO.getGroupId() + "");
                         }else{
-                            edtGroup.setText("none");
+                            edtGroup.setText("");
                         }
                         progressDialog.dismiss();
                     }else{

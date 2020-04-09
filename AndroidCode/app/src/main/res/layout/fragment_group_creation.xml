@@ -24,6 +24,7 @@
         android:layout_below="@+id/edtDescription"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_group_add"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:textSize="18sp"
