@@ -52,6 +52,8 @@ public class ProfileFragment extends Fragment {
         });
 
         btnSave.setOnClickListener((v)-> {
+            final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+            progressDialog.show();
             boolean check = true;
             String fullname,email,phone,role,validate = "";
             fullname = edtFullname.getText().toString();
@@ -73,8 +75,10 @@ public class ProfileFragment extends Fragment {
                     @Override
                     public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                         if (response.isSuccessful()) {
+                            progressDialog.dismiss();
                             Toast.makeText(getActivity(), "Save success", Toast.LENGTH_SHORT).show();
                         }else{
+                            progressDialog.dismiss();
                             TypeAdapter<UserResponse> adapter = new Gson().getAdapter(UserResponse.class);
                             try{
                                 if(response.errorBody() != null) {
@@ -89,10 +93,14 @@ public class ProfileFragment extends Fragment {
 
                     @Override
                     public void onFailure(Call<UserResponse> call, Throwable t) {
+                        progressDialog.dismiss();
                         Toast.makeText(getActivity(), "Save fail", Toast.LENGTH_SHORT).show();
                     }
                 });
-            }else Toast.makeText(getActivity(), validate, Toast.LENGTH_SHORT).show();
+            }else {
+                progressDialog.dismiss();
+                Toast.makeText(getActivity(), validate, Toast.LENGTH_SHORT).show();
+            }
         });
         return view;
     }

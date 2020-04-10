@@ -73,11 +73,14 @@ public class GroupDetailFragment extends Fragment {
             builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
+                    final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+                    progressDialog.show();
                     removeGroupIdInUser(groupId);
                     groupDAO.deleteGroup(groupId, new Callback<GroupResponse>() {
                         @Override
                         public void onResponse(Call<GroupResponse> call, Response<GroupResponse> response) {
                             if(response.isSuccessful()){
+                                progressDialog.dismiss();
                                 Toast.makeText(getActivity(),"Delete success",Toast.LENGTH_LONG);
                                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new GroupFragment()).commit();
                             }
@@ -85,6 +88,8 @@ public class GroupDetailFragment extends Fragment {
 
                         @Override
                         public void onFailure(Call<GroupResponse> call, Throwable t) {
+                            progressDialog.dismiss();
+                            Toast.makeText(getActivity(),"Delete fail",Toast.LENGTH_LONG);
                             t.printStackTrace();
                         }
                     });
