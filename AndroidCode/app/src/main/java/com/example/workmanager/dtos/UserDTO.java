@@ -1,5 +1,7 @@
 package com.example.workmanager.dtos;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
@@ -94,5 +96,11 @@ public class UserDTO implements Serializable {
 
     public void setGroupId(Integer groupId) {
         this.groupId = groupId;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return fullName;
     }
 }
