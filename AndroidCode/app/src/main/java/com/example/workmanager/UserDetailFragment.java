@@ -56,6 +56,8 @@ public class UserDetailFragment extends Fragment {
             btnSave.setVisibility(View.GONE);
         }
         btnSave.setOnClickListener((v)->{
+            final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+            progressDialog.show();
             String txtGroupId = edtGroup.getText().toString();
             Integer groupId = null;
             if(!txtGroupId.isEmpty()){
@@ -71,8 +73,10 @@ public class UserDetailFragment extends Fragment {
                 @Override
                 public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                     if (response.isSuccessful()) {
+                        progressDialog.dismiss();
                         Toast.makeText(getActivity(), "Save success", Toast.LENGTH_SHORT).show();
                     }else{
+                        progressDialog.dismiss();
                         TypeAdapter<UserResponse> adapter = new Gson().getAdapter(UserResponse.class);
                         try{
                             if(response.errorBody() != null) {
@@ -87,6 +91,7 @@ public class UserDetailFragment extends Fragment {
 
                 @Override
                 public void onFailure(Call<UserResponse> call, Throwable t) {
+                    progressDialog.dismiss();
                     Toast.makeText(getActivity(), "Save fail", Toast.LENGTH_SHORT).show();
                 }
             });
@@ -111,7 +116,7 @@ public class UserDetailFragment extends Fragment {
                         if(userDTO.getGroupId() != null){
                             edtGroup.setText(userDTO.getGroupId() + "");
                         }else{
-                            edtGroup.setText("none");
+                            edtGroup.setText("");
                         }
                         progressDialog.dismiss();
                     }else{

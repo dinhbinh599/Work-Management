@@ -4,7 +4,8 @@
     android:layout_height="150dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:paddingVertical="5dp">
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,33 +18,35 @@
             android:orientation="vertical">
             <TextView
                 android:id="@+id/txtGroupName"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorBlue"
                 android:text="Group Name"
-                android:textSize="25sp"
+                android:textSize="25dp"
                 android:textStyle="bold"
                 />
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/txtGroupId"
-                android:textSize="20sp"
+                android:drawableLeft="@drawable/ic_format_list_numbered"
                 android:text="Group No"/>
             <TextView
                 android:id="@+id/txtDescription"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
+                android:drawableLeft="@drawable/ic_description"
                 android:textStyle="italic"
                 android:text="Description"/>
             <TextView
                 android:id="@+id/txtCreatedTime"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
                 android:text="20-03-2020"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:gravity="right"/>
+                android:drawableRight="@drawable/ic_clock"
+                android:textStyle="bold" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

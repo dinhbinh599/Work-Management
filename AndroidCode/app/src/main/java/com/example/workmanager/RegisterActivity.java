@@ -2,6 +2,7 @@ package com.example.workmanager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -43,6 +44,8 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void clickToRegister(View view){
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.show();
         boolean check = true;
         String username,password,fullname,email,phone,validate = "";
         username = edtUsername.getText().toString();
@@ -78,10 +81,12 @@ public class RegisterActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                     if (response.code() == ResponseCodeConstant.OK) {
+                        progressDialog.dismiss();
                         Toast.makeText(RegisterActivity.this, "Register success", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                         startActivity(intent);
                     }else{
+                        progressDialog.dismiss();
                         TypeAdapter<UserResponse> adapter = new Gson().getAdapter(UserResponse.class);
                         try{
                             if(response.errorBody() != null) {
@@ -96,9 +101,13 @@ public class RegisterActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<UserResponse> call, Throwable t) {
+                    progressDialog.dismiss();
                     Toast.makeText(RegisterActivity.this, "Register fail", Toast.LENGTH_SHORT).show();
                 }
             });
-        }else Toast.makeText(RegisterActivity.this, validate, Toast.LENGTH_SHORT).show();
+        }else {
+            progressDialog.dismiss();
+            Toast.makeText(RegisterActivity.this, validate, Toast.LENGTH_SHORT).show();
+        }
     }
 }
