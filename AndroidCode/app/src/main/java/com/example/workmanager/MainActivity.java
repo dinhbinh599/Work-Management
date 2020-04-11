@@ -29,27 +29,31 @@ public class MainActivity extends AppCompatActivity {
         int idGroup = sharedPreferences.getInt("groupId", 0);
         groupId = idGroup != 0 ? idGroup : null;
         toolBar = getSupportActionBar();
+        toolBar.setTitle("Tasks");
         loadFragment(new TaskFragment());
         navigationItemSelectedListener = (BottomNavigationView.OnNavigationItemSelectedListener) (menuItem) -> {
             Fragment fragment;
             switch (menuItem.getItemId()){
                 case R.id.navigation_tasks: {
-
+                    toolBar.setTitle("Tasks");
                     fragment = new TaskFragment();
                     loadFragment(fragment);
                     return true;
                 }
                 case R.id.navigation_profile: {
+                    toolBar.setTitle("Profile");
                     fragment = new ProfileFragment();
                     loadFragment(fragment);
                     return true;
                 }
                 case R.id.navigation_group: {
+                    toolBar.setTitle("Groups");
                     fragment = new GroupFragment();
                     loadFragment(fragment);
                     return true;
                 }
                 case R.id.navigation_user: {
+                    toolBar.setTitle("Users");
                     fragment = new UserFragment();
                     loadFragment(fragment);
                     return true;
