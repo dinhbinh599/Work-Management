@@ -20,7 +20,7 @@
                 android:id="@+id/txtGroupName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorBlue"
+                android:textColor="@color/colorMint"
                 android:text="Group Name"
                 android:textSize="25dp"
                 android:textStyle="bold"

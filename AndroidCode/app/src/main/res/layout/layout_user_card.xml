@@ -23,12 +23,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="5dp"
                 android:hint="fullname" />
 
             <TextView
                 android:id="@+id/txtUsername"
                 android:textColor="@color/colorBlue"
                 android:textStyle="italic"
+                android:layout_marginLeft="5dp"
                 android:drawableLeft="@drawable/ic_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -41,6 +44,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
                 android:gravity="right"
+                android:layout_marginRight="5dp"
                 android:hint="Role"
                 android:textStyle="bold"
                 android:drawableRight="@drawable/ic_user_role"/>

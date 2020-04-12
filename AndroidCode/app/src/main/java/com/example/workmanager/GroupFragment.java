@@ -62,7 +62,8 @@ public class GroupFragment extends Fragment {
             btnSearch.setVisibility(View.GONE);
         }
         btnCreateGroup.setOnClickListener((v)->{
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new GroupCreationFragment()).commit();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new GroupCreationFragment()).addToBackStack("groupFragment").commit();
+
         });
         btnSearch.setOnClickListener((v)->{
             String search = edtSearch.getText().toString();

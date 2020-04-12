@@ -982,3 +982,579 @@ ORDER BY [t].[GroupId]
 2020-04-08 07:55:44.3428|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.GroupsController.GetGroup (TaskManager) in 72.2102ms
 2020-04-08 07:55:44.3642|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.GroupsController.GetGroup (TaskManager)'
 2020-04-08 07:55:44.3642|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 202.1394ms 200 application/json; charset=utf-8
+2020-04-08 21:39:32.5620|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-04-08 21:39:33.3565|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:37645/index.html  
+2020-04-08 21:39:33.5404|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 184.5118ms 200 text/html
+2020-04-08 21:39:35.1439|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:37645/swagger/v1/swagger.json  
+2020-04-08 21:39:35.3797|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 235.7937ms 200 application/json;charset=utf-8
+2020-04-08 21:39:43.5244|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 HEAD http://localhost:37645/  
+2020-04-08 21:39:43.5915|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 67.0618ms 404 
+2020-04-08 21:39:53.3078|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:37645/api/Users/login application/json; charset=UTF-8 36
+2020-04-08 21:39:53.3235|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.UsersController.Login (TaskManager)'
+2020-04-08 21:39:53.3826|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(TaskManager.Models.Request.LoginRequest) on controller TaskManager.Controllers.UsersController (TaskManager).
+2020-04-08 21:39:54.0843|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.UsersController.Login (TaskManager) - Validation state: Valid
+2020-04-08 21:39:54.3254|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 21:39:54.4246|WARN|Microsoft.EntityFrameworkCore.Query|The Include operation for navigation '[x].Role' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-04-08 21:39:54.6970|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (61ms) [Parameters=[@__username_0='?' (Size = 256), @__password_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x.Role].[RoleId], [x.Role].[Name], [x].[Fullname], [x].[Email], [x].[UserId], [x].[GroupId], [x].[Username]
+FROM [User] AS [x]
+LEFT JOIN [Role] AS [x.Role] ON [x].[RoleId] = [x.Role].[RoleId]
+WHERE ([x].[Username] = @__username_0) AND ([x].[PasswordHash] = @__password_1)
+2020-04-08 21:39:54.8034|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.UsersController.Login (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 707.0602ms.
+2020-04-08 21:39:54.8197|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 21:39:54.8429|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.UsersController.Login (TaskManager) in 1442.4205ms
+2020-04-08 21:39:54.8534|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.UsersController.Login (TaskManager)'
+2020-04-08 21:39:54.8534|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1554.8546ms 200 application/json; charset=utf-8
+2020-04-08 21:39:55.0316|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:37645/api/Tasks/all application/json; charset=UTF-8 26
+2020-04-08 21:39:55.0420|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-04-08 21:39:55.0564|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetTask", controller = "Tasks"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTask(TaskManager.Models.Request.GetTasksRequest) on controller TaskManager.Controllers.TasksController (TaskManager).
+2020-04-08 21:39:55.1159|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.TasksController.GetTask (TaskManager) - Validation state: Valid
+2020-04-08 21:39:55.1586|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 21:39:55.1763|WARN|Microsoft.EntityFrameworkCore.Query|The Include operation for navigation '[x].Role' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-04-08 21:39:55.1763|WARN|Microsoft.EntityFrameworkCore.Query|The Include operation for navigation '[x].Group' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-04-08 21:39:55.2463|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (36ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x.Role].[RoleId], [x.Role].[Name], [x].[UserId], [x].[Username], [x].[GroupId], [x].[RoleId] AS [RoleId0], [x].[Fullname], [x].[Phone], [x].[Email]
+FROM [User] AS [x]
+LEFT JOIN [Role] AS [x.Role] ON [x].[RoleId] = [x.Role].[RoleId]
+WHERE [x].[UserId] = @__id_0
+2020-04-08 21:39:55.2719|WARN|Microsoft.EntityFrameworkCore.Query|The Include operation for navigation '[x].Handler' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-04-08 21:39:55.2719|WARN|Microsoft.EntityFrameworkCore.Query|The Include operation for navigation '[x].Status' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-04-08 21:39:55.3734|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (43ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [x.Status].[StatusId], [x.Status].[Name], [x.Handler].[UserId], [x.Handler].[Email], [x.Handler].[Fullname], [x.Handler].[GroupId], [x.Handler].[ModifyTime], [x.Handler].[PasswordHash], [x.Handler].[Phone], [x.Handler].[RoleId], [x.Handler].[Username], [x].[TaskId], [x].[Name] AS [Name0], [x].[Description], [x].[StartTime], [x].[EndTime], [x].[StatusId] AS [StatusId0], [x].[HandlerId]
+FROM [Task] AS [x]
+INNER JOIN [Status] AS [x.Status] ON [x].[StatusId] = [x.Status].[StatusId]
+LEFT JOIN [User] AS [x.Handler] ON [x].[HandlerId] = [x.Handler].[UserId]
+ORDER BY [StatusId0], [x].[EndTime]
+2020-04-08 21:39:55.4658|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.TasksController.GetTask (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 336.1912ms.
+2020-04-08 21:39:55.4756|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 21:39:55.4983|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.TasksController.GetTask (TaskManager) in 430.8646ms
+2020-04-08 21:39:55.5124|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-04-08 21:39:55.5246|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 492.9731ms 200 application/json; charset=utf-8
+2020-04-08 21:39:56.5062|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:37645/api/Groups  
+2020-04-08 21:39:56.5202|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.GroupsController.GetGroup (TaskManager)'
+2020-04-08 21:39:56.5202|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetGroup", controller = "Groups"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetGroup() on controller TaskManager.Controllers.GroupsController (TaskManager).
+2020-04-08 21:39:56.5819|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.GroupsController.GetGroup (TaskManager) - Validation state: Valid
+2020-04-08 21:39:56.5974|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 21:39:56.6210|WARN|Microsoft.EntityFrameworkCore.Query|The Include operation for navigation '[x].User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-04-08 21:39:56.7094|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (37ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Name], [x].[Description], [x].[CreatedTime], [x].[GroupId]
+FROM [Group] AS [x]
+ORDER BY [x].[GroupId]
+2020-04-08 21:39:56.7677|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (38ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [x.User].[UserId], [x.User].[Email], [x.User].[Fullname], [x.User].[GroupId], [x.User].[ModifyTime], [x.User].[PasswordHash], [x.User].[Phone], [x.User].[RoleId], [x.User].[Username], [t].[GroupId]
+FROM [User] AS [x.User]
+INNER JOIN (
+    SELECT [x0].[GroupId]
+    FROM [Group] AS [x0]
+) AS [t] ON [x.User].[GroupId] = [t].[GroupId]
+ORDER BY [t].[GroupId]
+2020-04-08 21:39:56.7920|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.GroupsController.GetGroup (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 196.5963ms.
+2020-04-08 21:39:56.8039|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 21:39:56.8195|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.GroupsController.GetGroup (TaskManager) in 271.0154ms
+2020-04-08 21:39:56.8324|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.GroupsController.GetGroup (TaskManager)'
+2020-04-08 21:39:56.8324|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 340.0144ms 200 application/json; charset=utf-8
+2020-04-08 21:39:57.6232|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:37645/api/Users/all application/json; charset=UTF-8 2
+2020-04-08 21:39:57.6356|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.UsersController.GetAllUser (TaskManager)'
+2020-04-08 21:39:57.6501|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetAllUser", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAllUser(TaskManager.Models.Request.GetUserRequest) on controller TaskManager.Controllers.UsersController (TaskManager).
+2020-04-08 21:39:57.6931|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.UsersController.GetAllUser (TaskManager) - Validation state: Valid
+2020-04-08 21:39:57.7081|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 21:39:57.7303|WARN|Microsoft.EntityFrameworkCore.Query|The Include operation for navigation '[s].Role' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-04-08 21:39:57.8156|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (56ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s.Role].[RoleId], [s.Role].[Name], [s].[Fullname], [s].[Email], [s].[UserId], [s].[RoleId] AS [RoleId0], [s].[GroupId], [s].[Phone], [s].[Username]
+FROM [User] AS [s]
+LEFT JOIN [Role] AS [s.Role] ON [s].[RoleId] = [s.Role].[RoleId]
+WHERE ([s.Role].[Name] <> N'Admin') OR [s.Role].[Name] IS NULL
+ORDER BY [RoleId0]
+2020-04-08 21:39:57.8455|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.UsersController.GetAllUser (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 138.9414ms.
+2020-04-08 21:39:57.8583|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 21:39:57.8723|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.UsersController.GetAllUser (TaskManager) in 209.8772ms
+2020-04-08 21:39:57.8855|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.UsersController.GetAllUser (TaskManager)'
+2020-04-08 21:39:57.8966|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 273.393ms 200 application/json; charset=utf-8
+2020-04-08 21:39:58.0530|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:37645/api/Users/15  
+2020-04-08 21:39:58.0530|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.UsersController.GetUser (TaskManager)'
+2020-04-08 21:39:58.0763|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetUser", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUser(Int32) on controller TaskManager.Controllers.UsersController (TaskManager).
+2020-04-08 21:39:58.1277|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.UsersController.GetUser (TaskManager) - Validation state: Valid
+2020-04-08 21:39:58.1472|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 21:39:58.2196|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (51ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x.Role].[RoleId], [x.Role].[Name], [x].[UserId], [x].[Username], [x].[GroupId], [x].[RoleId] AS [RoleId0], [x].[Fullname], [x].[Phone], [x].[Email]
+FROM [User] AS [x]
+LEFT JOIN [Role] AS [x.Role] ON [x].[RoleId] = [x.Role].[RoleId]
+WHERE [x].[UserId] = @__id_0
+2020-04-08 21:39:58.2367|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.UsersController.GetUser (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 91.0427ms.
+2020-04-08 21:39:58.2495|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 21:39:58.2634|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.UsersController.GetUser (TaskManager) in 174.194ms
+2020-04-08 21:39:58.2751|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.UsersController.GetUser (TaskManager)'
+2020-04-08 21:39:58.2877|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 234.6647ms 200 application/json; charset=utf-8
+2020-04-08 21:39:58.5612|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:37645/api/Users/15  
+2020-04-08 21:39:58.5747|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.UsersController.GetUser (TaskManager)'
+2020-04-08 21:39:58.5883|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetUser", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUser(Int32) on controller TaskManager.Controllers.UsersController (TaskManager).
+2020-04-08 21:39:58.6335|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.UsersController.GetUser (TaskManager) - Validation state: Valid
+2020-04-08 21:39:58.6482|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 21:39:58.7290|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (46ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x.Role].[RoleId], [x.Role].[Name], [x].[UserId], [x].[Username], [x].[GroupId], [x].[RoleId] AS [RoleId0], [x].[Fullname], [x].[Phone], [x].[Email]
+FROM [User] AS [x]
+LEFT JOIN [Role] AS [x.Role] ON [x].[RoleId] = [x.Role].[RoleId]
+WHERE [x].[UserId] = @__id_0
+2020-04-08 21:39:58.7390|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.UsersController.GetUser (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 91.5012ms.
+2020-04-08 21:39:58.7390|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 21:39:58.7659|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.UsersController.GetUser (TaskManager) in 163.698ms
+2020-04-08 21:39:58.7799|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.UsersController.GetUser (TaskManager)'
+2020-04-08 21:39:58.7939|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 232.7508ms 200 application/json; charset=utf-8
+2020-04-08 22:36:21.4298|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:37645/api/Users/login application/json; charset=UTF-8 36
+2020-04-08 22:36:21.4751|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.UsersController.Login (TaskManager)'
+2020-04-08 22:36:21.4922|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(TaskManager.Models.Request.LoginRequest) on controller TaskManager.Controllers.UsersController (TaskManager).
+2020-04-08 22:36:21.5604|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.UsersController.Login (TaskManager) - Validation state: Valid
+2020-04-08 22:36:21.5753|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 22:36:21.6583|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (30ms) [Parameters=[@__username_0='?' (Size = 256), @__password_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x.Role].[RoleId], [x.Role].[Name], [x].[Fullname], [x].[Email], [x].[UserId], [x].[GroupId], [x].[Username]
+FROM [User] AS [x]
+LEFT JOIN [Role] AS [x.Role] ON [x].[RoleId] = [x.Role].[RoleId]
+WHERE ([x].[Username] = @__username_0) AND ([x].[PasswordHash] = @__password_1)
+2020-04-08 22:36:21.6814|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.UsersController.Login (TaskManager), returned result Microsoft.AspNetCore.Mvc.NotFoundObjectResult in 111.7302ms.
+2020-04-08 22:36:21.6814|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 22:36:21.7005|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.UsersController.Login (TaskManager) in 192.3444ms
+2020-04-08 22:36:21.7136|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.UsersController.Login (TaskManager)'
+2020-04-08 22:36:21.7224|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 321.7177ms 404 application/json; charset=utf-8
+2020-04-08 22:36:25.9239|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:37645/api/Users/login application/json; charset=UTF-8 36
+2020-04-08 22:36:25.9350|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.UsersController.Login (TaskManager)'
+2020-04-08 22:36:25.9450|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(TaskManager.Models.Request.LoginRequest) on controller TaskManager.Controllers.UsersController (TaskManager).
+2020-04-08 22:36:25.9884|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.UsersController.Login (TaskManager) - Validation state: Valid
+2020-04-08 22:36:25.9884|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 22:36:26.0482|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (33ms) [Parameters=[@__username_0='?' (Size = 256), @__password_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x.Role].[RoleId], [x.Role].[Name], [x].[Fullname], [x].[Email], [x].[UserId], [x].[GroupId], [x].[Username]
+FROM [User] AS [x]
+LEFT JOIN [Role] AS [x.Role] ON [x].[RoleId] = [x.Role].[RoleId]
+WHERE ([x].[Username] = @__username_0) AND ([x].[PasswordHash] = @__password_1)
+2020-04-08 22:36:26.0580|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.UsersController.Login (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 58.9448ms.
+2020-04-08 22:36:26.0687|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 22:36:26.0687|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.UsersController.Login (TaskManager) in 120.6391ms
+2020-04-08 22:36:26.0888|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.UsersController.Login (TaskManager)'
+2020-04-08 22:36:26.0970|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 173.0847ms 200 application/json; charset=utf-8
+2020-04-08 22:36:26.3156|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:37645/api/Tasks/all application/json; charset=UTF-8 26
+2020-04-08 22:36:26.3303|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-04-08 22:36:26.3432|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetTask", controller = "Tasks"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTask(TaskManager.Models.Request.GetTasksRequest) on controller TaskManager.Controllers.TasksController (TaskManager).
+2020-04-08 22:36:26.3768|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.TasksController.GetTask (TaskManager) - Validation state: Valid
+2020-04-08 22:36:26.3910|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 22:36:26.4452|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (41ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x.Role].[RoleId], [x.Role].[Name], [x].[UserId], [x].[Username], [x].[GroupId], [x].[RoleId] AS [RoleId0], [x].[Fullname], [x].[Phone], [x].[Email]
+FROM [User] AS [x]
+LEFT JOIN [Role] AS [x.Role] ON [x].[RoleId] = [x.Role].[RoleId]
+WHERE [x].[UserId] = @__id_0
+2020-04-08 22:36:26.5038|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (34ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [x.Status].[StatusId], [x.Status].[Name], [x.Handler].[UserId], [x.Handler].[Email], [x.Handler].[Fullname], [x.Handler].[GroupId], [x.Handler].[ModifyTime], [x.Handler].[PasswordHash], [x.Handler].[Phone], [x.Handler].[RoleId], [x.Handler].[Username], [x].[TaskId], [x].[Name] AS [Name0], [x].[Description], [x].[StartTime], [x].[EndTime], [x].[StatusId] AS [StatusId0], [x].[HandlerId]
+FROM [Task] AS [x]
+INNER JOIN [Status] AS [x.Status] ON [x].[StatusId] = [x.Status].[StatusId]
+LEFT JOIN [User] AS [x.Handler] ON [x].[HandlerId] = [x.Handler].[UserId]
+ORDER BY [StatusId0], [x].[EndTime]
+2020-04-08 22:36:26.5188|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.TasksController.GetTask (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 129.1762ms.
+2020-04-08 22:36:26.5188|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 22:36:26.5428|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.TasksController.GetTask (TaskManager) in 188.4568ms
+2020-04-08 22:36:26.5562|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-04-08 22:36:26.5701|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 254.4979ms 200 application/json; charset=utf-8
+2020-04-08 22:36:31.0664|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:37645/api/Groups  
+2020-04-08 22:36:31.0664|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.GroupsController.GetGroup (TaskManager)'
+2020-04-08 22:36:31.0940|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetGroup", controller = "Groups"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetGroup() on controller TaskManager.Controllers.GroupsController (TaskManager).
+2020-04-08 22:36:31.1410|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.GroupsController.GetGroup (TaskManager) - Validation state: Valid
+2020-04-08 22:36:31.1553|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 22:36:31.2097|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (38ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Name], [x].[Description], [x].[CreatedTime], [x].[GroupId]
+FROM [Group] AS [x]
+ORDER BY [x].[GroupId]
+2020-04-08 22:36:31.2618|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (37ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [x.User].[UserId], [x.User].[Email], [x.User].[Fullname], [x.User].[GroupId], [x.User].[ModifyTime], [x.User].[PasswordHash], [x.User].[Phone], [x.User].[RoleId], [x.User].[Username], [t].[GroupId]
+FROM [User] AS [x.User]
+INNER JOIN (
+    SELECT [x0].[GroupId]
+    FROM [Group] AS [x0]
+) AS [t] ON [x.User].[GroupId] = [t].[GroupId]
+ORDER BY [t].[GroupId]
+2020-04-08 22:36:31.2742|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.GroupsController.GetGroup (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 119.9343ms.
+2020-04-08 22:36:31.2742|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 22:36:31.2952|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.GroupsController.GetGroup (TaskManager) in 186.6467ms
+2020-04-08 22:36:31.3080|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.GroupsController.GetGroup (TaskManager)'
+2020-04-08 22:36:31.3186|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 252.1697ms 200 application/json; charset=utf-8
+2020-04-08 22:36:31.5661|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:37645/api/Users/all application/json; charset=UTF-8 2
+2020-04-08 22:36:31.5661|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.UsersController.GetAllUser (TaskManager)'
+2020-04-08 22:36:31.5858|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetAllUser", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAllUser(TaskManager.Models.Request.GetUserRequest) on controller TaskManager.Controllers.UsersController (TaskManager).
+2020-04-08 22:36:31.6249|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.UsersController.GetAllUser (TaskManager) - Validation state: Valid
+2020-04-08 22:36:31.6389|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 22:36:31.6873|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (37ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s.Role].[RoleId], [s.Role].[Name], [s].[Fullname], [s].[Email], [s].[UserId], [s].[RoleId] AS [RoleId0], [s].[GroupId], [s].[Phone], [s].[Username]
+FROM [User] AS [s]
+LEFT JOIN [Role] AS [s.Role] ON [s].[RoleId] = [s.Role].[RoleId]
+WHERE ([s.Role].[Name] <> N'Admin') OR [s.Role].[Name] IS NULL
+ORDER BY [RoleId0]
+2020-04-08 22:36:31.6976|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.UsersController.GetAllUser (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 59.2858ms.
+2020-04-08 22:36:31.7087|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 22:36:31.7087|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.UsersController.GetAllUser (TaskManager) in 124.6559ms
+2020-04-08 22:36:31.7348|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.UsersController.GetAllUser (TaskManager)'
+2020-04-08 22:36:31.7455|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 179.4181ms 200 application/json; charset=utf-8
+2020-04-08 22:36:32.2619|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:37645/api/Users/15  
+2020-04-08 22:36:32.2751|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.UsersController.GetUser (TaskManager)'
+2020-04-08 22:36:32.2896|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetUser", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUser(Int32) on controller TaskManager.Controllers.UsersController (TaskManager).
+2020-04-08 22:36:32.3340|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.UsersController.GetUser (TaskManager) - Validation state: Valid
+2020-04-08 22:36:32.3503|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 22:36:32.4179|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (51ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x.Role].[RoleId], [x.Role].[Name], [x].[UserId], [x].[Username], [x].[GroupId], [x].[RoleId] AS [RoleId0], [x].[Fullname], [x].[Phone], [x].[Email]
+FROM [User] AS [x]
+LEFT JOIN [Role] AS [x.Role] ON [x].[RoleId] = [x.Role].[RoleId]
+WHERE [x].[UserId] = @__id_0
+2020-04-08 22:36:32.4349|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.UsersController.GetUser (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 85.2101ms.
+2020-04-08 22:36:32.4501|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 22:36:32.4656|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.UsersController.GetUser (TaskManager) in 161.3005ms
+2020-04-08 22:36:32.4828|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.UsersController.GetUser (TaskManager)'
+2020-04-08 22:36:32.4994|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 237.5829ms 200 application/json; charset=utf-8
+2020-04-08 22:36:33.1644|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:37645/api/Tasks/all application/json; charset=UTF-8 26
+2020-04-08 22:36:33.1789|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-04-08 22:36:33.1935|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetTask", controller = "Tasks"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTask(TaskManager.Models.Request.GetTasksRequest) on controller TaskManager.Controllers.TasksController (TaskManager).
+2020-04-08 22:36:33.2323|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.TasksController.GetTask (TaskManager) - Validation state: Valid
+2020-04-08 22:36:33.2424|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 22:36:33.2857|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (32ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x.Role].[RoleId], [x.Role].[Name], [x].[UserId], [x].[Username], [x].[GroupId], [x].[RoleId] AS [RoleId0], [x].[Fullname], [x].[Phone], [x].[Email]
+FROM [User] AS [x]
+LEFT JOIN [Role] AS [x.Role] ON [x].[RoleId] = [x.Role].[RoleId]
+WHERE [x].[UserId] = @__id_0
+2020-04-08 22:36:33.3323|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (35ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [x.Status].[StatusId], [x.Status].[Name], [x.Handler].[UserId], [x.Handler].[Email], [x.Handler].[Fullname], [x.Handler].[GroupId], [x.Handler].[ModifyTime], [x.Handler].[PasswordHash], [x.Handler].[Phone], [x.Handler].[RoleId], [x.Handler].[Username], [x].[TaskId], [x].[Name] AS [Name0], [x].[Description], [x].[StartTime], [x].[EndTime], [x].[StatusId] AS [StatusId0], [x].[HandlerId]
+FROM [Task] AS [x]
+INNER JOIN [Status] AS [x.Status] ON [x].[StatusId] = [x.Status].[StatusId]
+LEFT JOIN [User] AS [x.Handler] ON [x].[HandlerId] = [x.Handler].[UserId]
+ORDER BY [StatusId0], [x].[EndTime]
+2020-04-08 22:36:33.3505|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.TasksController.GetTask (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 108.5959ms.
+2020-04-08 22:36:33.3659|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 22:36:33.3788|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.TasksController.GetTask (TaskManager) in 172.3552ms
+2020-04-08 22:36:33.3788|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-04-08 22:36:33.4071|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 242.7361ms 200 application/json; charset=utf-8
+2020-04-08 22:36:34.6374|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:37645/api/Users/15  
+2020-04-08 22:36:34.6511|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.UsersController.GetUser (TaskManager)'
+2020-04-08 22:36:34.6640|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetUser", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUser(Int32) on controller TaskManager.Controllers.UsersController (TaskManager).
+2020-04-08 22:36:34.7164|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.UsersController.GetUser (TaskManager) - Validation state: Valid
+2020-04-08 22:36:34.7339|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 22:36:34.7978|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (48ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x.Role].[RoleId], [x.Role].[Name], [x].[UserId], [x].[Username], [x].[GroupId], [x].[RoleId] AS [RoleId0], [x].[Fullname], [x].[Phone], [x].[Email]
+FROM [User] AS [x]
+LEFT JOIN [Role] AS [x.Role] ON [x].[RoleId] = [x.Role].[RoleId]
+WHERE [x].[UserId] = @__id_0
+2020-04-08 22:36:34.8139|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.UsersController.GetUser (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 80.9134ms.
+2020-04-08 22:36:34.8277|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 22:36:34.8437|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.UsersController.GetUser (TaskManager) in 165.2921ms
+2020-04-08 22:36:34.8595|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.UsersController.GetUser (TaskManager)'
+2020-04-08 22:36:34.8716|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 234.1786ms 200 application/json; charset=utf-8
+2020-04-08 22:36:35.7676|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:37645/api/Groups  
+2020-04-08 22:36:35.7803|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.GroupsController.GetGroup (TaskManager)'
+2020-04-08 22:36:35.7921|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetGroup", controller = "Groups"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetGroup() on controller TaskManager.Controllers.GroupsController (TaskManager).
+2020-04-08 22:36:35.8258|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.GroupsController.GetGroup (TaskManager) - Validation state: Valid
+2020-04-08 22:36:35.8370|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 22:36:35.8827|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (35ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Name], [x].[Description], [x].[CreatedTime], [x].[GroupId]
+FROM [Group] AS [x]
+ORDER BY [x].[GroupId]
+2020-04-08 22:36:35.9426|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (45ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [x.User].[UserId], [x.User].[Email], [x.User].[Fullname], [x.User].[GroupId], [x.User].[ModifyTime], [x.User].[PasswordHash], [x.User].[Phone], [x.User].[RoleId], [x.User].[Username], [t].[GroupId]
+FROM [User] AS [x.User]
+INNER JOIN (
+    SELECT [x0].[GroupId]
+    FROM [Group] AS [x0]
+) AS [t] ON [x.User].[GroupId] = [t].[GroupId]
+ORDER BY [t].[GroupId]
+2020-04-08 22:36:35.9567|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.GroupsController.GetGroup (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 120.3771ms.
+2020-04-08 22:36:35.9567|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 22:36:35.9832|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.GroupsController.GetGroup (TaskManager) in 181.8744ms
+2020-04-08 22:36:35.9973|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.GroupsController.GetGroup (TaskManager)'
+2020-04-08 22:36:36.0104|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 242.7747ms 200 application/json; charset=utf-8
+2020-04-08 22:36:36.5338|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:37645/api/Tasks/all application/json; charset=UTF-8 26
+2020-04-08 22:36:36.5463|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-04-08 22:36:36.5562|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetTask", controller = "Tasks"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTask(TaskManager.Models.Request.GetTasksRequest) on controller TaskManager.Controllers.TasksController (TaskManager).
+2020-04-08 22:36:36.5929|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.TasksController.GetTask (TaskManager) - Validation state: Valid
+2020-04-08 22:36:36.6067|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 22:36:36.6618|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (42ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x.Role].[RoleId], [x.Role].[Name], [x].[UserId], [x].[Username], [x].[GroupId], [x].[RoleId] AS [RoleId0], [x].[Fullname], [x].[Phone], [x].[Email]
+FROM [User] AS [x]
+LEFT JOIN [Role] AS [x.Role] ON [x].[RoleId] = [x.Role].[RoleId]
+WHERE [x].[UserId] = @__id_0
+2020-04-08 22:36:36.7180|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (41ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [x.Status].[StatusId], [x.Status].[Name], [x.Handler].[UserId], [x.Handler].[Email], [x.Handler].[Fullname], [x.Handler].[GroupId], [x.Handler].[ModifyTime], [x.Handler].[PasswordHash], [x.Handler].[Phone], [x.Handler].[RoleId], [x.Handler].[Username], [x].[TaskId], [x].[Name] AS [Name0], [x].[Description], [x].[StartTime], [x].[EndTime], [x].[StatusId] AS [StatusId0], [x].[HandlerId]
+FROM [Task] AS [x]
+INNER JOIN [Status] AS [x.Status] ON [x].[StatusId] = [x.Status].[StatusId]
+LEFT JOIN [User] AS [x.Handler] ON [x].[HandlerId] = [x.Handler].[UserId]
+ORDER BY [StatusId0], [x].[EndTime]
+2020-04-08 22:36:36.7317|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.TasksController.GetTask (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 126.3232ms.
+2020-04-08 22:36:36.7452|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 22:36:36.7586|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.TasksController.GetTask (TaskManager) in 192.8539ms
+2020-04-08 22:36:36.7702|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-04-08 22:36:36.7702|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 249.0796ms 200 application/json; charset=utf-8
+2020-04-08 22:36:37.7453|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:37645/api/Users/all application/json; charset=UTF-8 2
+2020-04-08 22:36:37.7555|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.UsersController.GetAllUser (TaskManager)'
+2020-04-08 22:36:37.7555|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetAllUser", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAllUser(TaskManager.Models.Request.GetUserRequest) on controller TaskManager.Controllers.UsersController (TaskManager).
+2020-04-08 22:36:37.7973|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.UsersController.GetAllUser (TaskManager) - Validation state: Valid
+2020-04-08 22:36:37.8059|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 22:36:37.8441|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (26ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s.Role].[RoleId], [s.Role].[Name], [s].[Fullname], [s].[Email], [s].[UserId], [s].[RoleId] AS [RoleId0], [s].[GroupId], [s].[Phone], [s].[Username]
+FROM [User] AS [s]
+LEFT JOIN [Role] AS [s.Role] ON [s].[RoleId] = [s.Role].[RoleId]
+WHERE ([s.Role].[Name] <> N'Admin') OR [s.Role].[Name] IS NULL
+ORDER BY [RoleId0]
+2020-04-08 22:36:37.8523|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.UsersController.GetAllUser (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 46.9002ms.
+2020-04-08 22:36:37.8523|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 22:36:37.8684|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.UsersController.GetAllUser (TaskManager) in 92.3312ms
+2020-04-08 22:36:37.8684|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.UsersController.GetAllUser (TaskManager)'
+2020-04-08 22:36:37.8846|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 139.3649ms 200 application/json; charset=utf-8
+2020-04-08 22:37:09.2150|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:37645/api/Tasks application/json; charset=UTF-8 114
+2020-04-08 22:37:09.2242|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.TasksController.CreateTask (TaskManager)'
+2020-04-08 22:37:09.2751|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "CreateTask", controller = "Tasks"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreateTask(TaskManager.ViewModels.TaskCreateViewModel) on controller TaskManager.Controllers.TasksController (TaskManager).
+2020-04-08 22:37:09.3494|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.TasksController.CreateTask (TaskManager) - Validation state: Valid
+2020-04-08 22:37:09.3638|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 22:37:09.5538|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (34ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = DateTime), @p2='?' (Size = 50), @p3='?' (Size = 4000), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int32), @p6='?' (Size = 4000), @p7='?' (DbType = Int32), @p8='?' (DbType = DateTime), @p9='?' (Size = 200), @p10='?' (Size = 4000), @p11='?' (DbType = DateTime), @p12='?' (DbType = Int32), @p13='?' (DbType = DateTime), @p14='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Task] ([ConfirmationImage], [CreatedTime], [Creator], [Description], [EndTime], [HandlerId], [ManagerReview], [Mark], [ModifyTime], [Name], [Report], [ReviewedTime], [SourceId], [StartTime], [StatusId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14);
+SELECT [TaskId]
+FROM [Task]
+WHERE @@ROWCOUNT = 1 AND [TaskId] = scope_identity();
+2020-04-08 22:37:09.5746|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.TasksController.CreateTask (TaskManager), returned result Microsoft.AspNetCore.Mvc.CreatedResult in 212.9544ms.
+2020-04-08 22:37:09.5829|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 22:37:09.5829|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.TasksController.CreateTask (TaskManager) in 298.3267ms
+2020-04-08 22:37:09.6021|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.TasksController.CreateTask (TaskManager)'
+2020-04-08 22:37:09.6021|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 395.4707ms 201 application/json; charset=utf-8
+2020-04-08 22:37:09.6752|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:37645/api/Tasks/all application/json; charset=UTF-8 26
+2020-04-08 22:37:09.6948|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-04-08 22:37:09.7111|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetTask", controller = "Tasks"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTask(TaskManager.Models.Request.GetTasksRequest) on controller TaskManager.Controllers.TasksController (TaskManager).
+2020-04-08 22:37:09.7505|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.TasksController.GetTask (TaskManager) - Validation state: Valid
+2020-04-08 22:37:09.7638|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 22:37:09.8084|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (32ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x.Role].[RoleId], [x.Role].[Name], [x].[UserId], [x].[Username], [x].[GroupId], [x].[RoleId] AS [RoleId0], [x].[Fullname], [x].[Phone], [x].[Email]
+FROM [User] AS [x]
+LEFT JOIN [Role] AS [x.Role] ON [x].[RoleId] = [x.Role].[RoleId]
+WHERE [x].[UserId] = @__id_0
+2020-04-08 22:37:09.8426|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [x.Status].[StatusId], [x.Status].[Name], [x.Handler].[UserId], [x.Handler].[Email], [x.Handler].[Fullname], [x.Handler].[GroupId], [x.Handler].[ModifyTime], [x.Handler].[PasswordHash], [x.Handler].[Phone], [x.Handler].[RoleId], [x.Handler].[Username], [x].[TaskId], [x].[Name] AS [Name0], [x].[Description], [x].[StartTime], [x].[EndTime], [x].[StatusId] AS [StatusId0], [x].[HandlerId]
+FROM [Task] AS [x]
+INNER JOIN [Status] AS [x.Status] ON [x].[StatusId] = [x.Status].[StatusId]
+LEFT JOIN [User] AS [x.Handler] ON [x].[HandlerId] = [x.Handler].[UserId]
+ORDER BY [StatusId0], [x].[EndTime]
+2020-04-08 22:37:09.8520|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.TasksController.GetTask (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 89.2536ms.
+2020-04-08 22:37:09.8520|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 22:37:09.8699|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.TasksController.GetTask (TaskManager) in 146.7954ms
+2020-04-08 22:37:09.8789|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-04-08 22:37:09.8789|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 215.8306ms 200 application/json; charset=utf-8
+2020-04-08 22:37:17.0251|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:37645/api/status  
+2020-04-08 22:37:17.0367|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.StatusController.GetStatus (TaskManager)'
+2020-04-08 22:37:17.0506|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetStatus(System.String) on controller TaskManager.Controllers.StatusController (TaskManager).
+2020-04-08 22:37:17.1023|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.StatusController.GetStatus (TaskManager) - Validation state: Valid
+2020-04-08 22:37:17.1198|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 22:37:17.1921|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (43ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[StatusId], [s].[Name]
+FROM [Status] AS [s]
+2020-04-08 22:37:17.2134|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.StatusController.GetStatus (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 95.8161ms.
+2020-04-08 22:37:17.2274|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 22:37:17.2431|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.StatusController.GetStatus (TaskManager) in 180.5536ms
+2020-04-08 22:37:17.2556|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.StatusController.GetStatus (TaskManager)'
+2020-04-08 22:37:17.2556|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 239.0715ms 200 application/json; charset=utf-8
+2020-04-08 22:37:48.6560|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:37645/api/Users/login application/json; charset=UTF-8 36
+2020-04-08 22:37:48.6682|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.UsersController.Login (TaskManager)'
+2020-04-08 22:37:48.6981|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(TaskManager.Models.Request.LoginRequest) on controller TaskManager.Controllers.UsersController (TaskManager).
+2020-04-08 22:37:48.7416|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.UsersController.Login (TaskManager) - Validation state: Valid
+2020-04-08 22:37:48.7543|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 22:37:48.8010|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (34ms) [Parameters=[@__username_0='?' (Size = 256), @__password_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x.Role].[RoleId], [x.Role].[Name], [x].[Fullname], [x].[Email], [x].[UserId], [x].[GroupId], [x].[Username]
+FROM [User] AS [x]
+LEFT JOIN [Role] AS [x.Role] ON [x].[RoleId] = [x.Role].[RoleId]
+WHERE ([x].[Username] = @__username_0) AND ([x].[PasswordHash] = @__password_1)
+2020-04-08 22:37:48.8010|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.UsersController.Login (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 58.7551ms.
+2020-04-08 22:37:48.8212|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 22:37:48.8212|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.UsersController.Login (TaskManager) in 119.0437ms
+2020-04-08 22:37:48.8445|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.UsersController.Login (TaskManager)'
+2020-04-08 22:37:48.8532|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 197.2112ms 200 application/json; charset=utf-8
+2020-04-08 22:37:49.0540|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:37645/api/Tasks/all application/json; charset=UTF-8 26
+2020-04-08 22:37:49.0656|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-04-08 22:37:49.0656|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetTask", controller = "Tasks"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTask(TaskManager.Models.Request.GetTasksRequest) on controller TaskManager.Controllers.TasksController (TaskManager).
+2020-04-08 22:37:49.1088|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.TasksController.GetTask (TaskManager) - Validation state: Valid
+2020-04-08 22:37:49.1196|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 22:37:49.1714|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (39ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x.Role].[RoleId], [x.Role].[Name], [x].[UserId], [x].[Username], [x].[GroupId], [x].[RoleId] AS [RoleId0], [x].[Fullname], [x].[Phone], [x].[Email]
+FROM [User] AS [x]
+LEFT JOIN [Role] AS [x.Role] ON [x].[RoleId] = [x.Role].[RoleId]
+WHERE [x].[UserId] = @__id_0
+2020-04-08 22:37:49.2192|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (37ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [x.Status].[StatusId], [x.Status].[Name], [x.Handler].[UserId], [x.Handler].[Email], [x.Handler].[Fullname], [x.Handler].[GroupId], [x.Handler].[ModifyTime], [x.Handler].[PasswordHash], [x.Handler].[Phone], [x.Handler].[RoleId], [x.Handler].[Username], [x].[TaskId], [x].[Name] AS [Name0], [x].[Description], [x].[StartTime], [x].[EndTime], [x].[StatusId] AS [StatusId0], [x].[HandlerId]
+FROM [Task] AS [x]
+INNER JOIN [Status] AS [x.Status] ON [x].[StatusId] = [x.Status].[StatusId]
+LEFT JOIN [User] AS [x.Handler] ON [x].[HandlerId] = [x.Handler].[UserId]
+ORDER BY [StatusId0], [x].[EndTime]
+2020-04-08 22:37:49.2294|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.TasksController.GetTask (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 110.4374ms.
+2020-04-08 22:37:49.2426|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 22:37:49.2426|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.TasksController.GetTask (TaskManager) in 166.1405ms
+2020-04-08 22:37:49.2644|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-04-08 22:37:49.2784|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 224.3831ms 200 application/json; charset=utf-8
+2020-04-08 22:38:00.6418|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:37645/api/Tasks/51  
+2020-04-08 22:38:00.6512|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-04-08 22:38:00.6641|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetTask", controller = "Tasks"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTask(Int32) on controller TaskManager.Controllers.TasksController (TaskManager).
+2020-04-08 22:38:00.7047|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.TasksController.GetTask (TaskManager) - Validation state: Valid
+2020-04-08 22:38:00.7190|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 22:38:00.9617|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (38ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[TaskId], [x].[ConfirmationImage], [x].[CreatedTime], [x].[Creator], [x].[Description], [x].[EndTime], [x].[HandlerId], [x].[ManagerReview], [x].[Mark], [x].[ModifyTime], [x].[Name], [x].[Report], [x].[ReviewedTime], [x].[SourceId], [x].[StartTime], [x].[StatusId], [x.Handler].[UserId], [x.Handler].[Email], [x.Handler].[Fullname], [x.Handler].[GroupId], [x.Handler].[ModifyTime], [x.Handler].[PasswordHash], [x.Handler].[Phone], [x.Handler].[RoleId], [x.Handler].[Username], [x.Status].[StatusId], [x.Status].[Name]
+FROM [Task] AS [x]
+LEFT JOIN [User] AS [x.Handler] ON [x].[HandlerId] = [x.Handler].[UserId]
+INNER JOIN [Status] AS [x.Status] ON [x].[StatusId] = [x.Status].[StatusId]
+WHERE [x].[TaskId] = @__id_0
+2020-04-08 22:38:00.9914|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.TasksController.GetTask (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 273.9933ms.
+2020-04-08 22:38:00.9914|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 22:38:01.0147|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.TasksController.GetTask (TaskManager) in 341.3394ms
+2020-04-08 22:38:01.0295|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-04-08 22:38:01.0442|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 402.382ms 200 application/json; charset=utf-8
+2020-04-08 22:38:02.1230|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:37645/api/Tasks/all application/json; charset=UTF-8 26
+2020-04-08 22:38:02.1332|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-04-08 22:38:02.1332|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetTask", controller = "Tasks"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTask(TaskManager.Models.Request.GetTasksRequest) on controller TaskManager.Controllers.TasksController (TaskManager).
+2020-04-08 22:38:02.1828|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.TasksController.GetTask (TaskManager) - Validation state: Valid
+2020-04-08 22:38:02.1958|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 22:38:02.2607|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (47ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x.Role].[RoleId], [x.Role].[Name], [x].[UserId], [x].[Username], [x].[GroupId], [x].[RoleId] AS [RoleId0], [x].[Fullname], [x].[Phone], [x].[Email]
+FROM [User] AS [x]
+LEFT JOIN [Role] AS [x.Role] ON [x].[RoleId] = [x.Role].[RoleId]
+WHERE [x].[UserId] = @__id_0
+2020-04-08 22:38:02.3229|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (43ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [x.Status].[StatusId], [x.Status].[Name], [x.Handler].[UserId], [x.Handler].[Email], [x.Handler].[Fullname], [x.Handler].[GroupId], [x.Handler].[ModifyTime], [x.Handler].[PasswordHash], [x.Handler].[Phone], [x.Handler].[RoleId], [x.Handler].[Username], [x].[TaskId], [x].[Name] AS [Name0], [x].[Description], [x].[StartTime], [x].[EndTime], [x].[StatusId] AS [StatusId0], [x].[HandlerId]
+FROM [Task] AS [x]
+INNER JOIN [Status] AS [x.Status] ON [x].[StatusId] = [x.Status].[StatusId]
+LEFT JOIN [User] AS [x.Handler] ON [x].[HandlerId] = [x.Handler].[UserId]
+ORDER BY [StatusId0], [x].[EndTime]
+2020-04-08 22:38:02.3369|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.TasksController.GetTask (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 141.9776ms.
+2020-04-08 22:38:02.3493|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 22:38:02.3628|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.TasksController.GetTask (TaskManager) in 207.9477ms
+2020-04-08 22:38:02.3790|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-04-08 22:38:02.3790|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 269.3165ms 200 application/json; charset=utf-8
+2020-04-08 22:38:10.9495|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:37645/api/Tasks/61  
+2020-04-08 22:38:10.9629|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-04-08 22:38:10.9760|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetTask", controller = "Tasks"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTask(Int32) on controller TaskManager.Controllers.TasksController (TaskManager).
+2020-04-08 22:38:11.0205|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.TasksController.GetTask (TaskManager) - Validation state: Valid
+2020-04-08 22:38:11.0205|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 22:38:11.0866|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (39ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[TaskId], [x].[ConfirmationImage], [x].[CreatedTime], [x].[Creator], [x].[Description], [x].[EndTime], [x].[HandlerId], [x].[ManagerReview], [x].[Mark], [x].[ModifyTime], [x].[Name], [x].[Report], [x].[ReviewedTime], [x].[SourceId], [x].[StartTime], [x].[StatusId], [x.Handler].[UserId], [x.Handler].[Email], [x.Handler].[Fullname], [x.Handler].[GroupId], [x.Handler].[ModifyTime], [x.Handler].[PasswordHash], [x.Handler].[Phone], [x.Handler].[RoleId], [x.Handler].[Username], [x.Status].[StatusId], [x.Status].[Name]
+FROM [Task] AS [x]
+LEFT JOIN [User] AS [x.Handler] ON [x].[HandlerId] = [x.Handler].[UserId]
+INNER JOIN [Status] AS [x.Status] ON [x].[StatusId] = [x.Status].[StatusId]
+WHERE [x].[TaskId] = @__id_0
+2020-04-08 22:38:11.0866|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.TasksController.GetTask (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 64.6734ms.
+2020-04-08 22:38:11.1080|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 22:38:11.1196|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.TasksController.GetTask (TaskManager) in 130.6406ms
+2020-04-08 22:38:11.1297|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-04-08 22:38:11.1297|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 192.0147ms 200 application/json; charset=utf-8
+2020-04-08 22:38:39.7401|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:37645/api/status?name=Failed  
+2020-04-08 22:38:39.7401|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.StatusController.GetStatus (TaskManager)'
+2020-04-08 22:38:39.7583|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetStatus(System.String) on controller TaskManager.Controllers.StatusController (TaskManager).
+2020-04-08 22:38:39.8425|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.StatusController.GetStatus (TaskManager) - Validation state: Valid
+2020-04-08 22:38:39.8600|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 22:38:39.9382|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (49ms) [Parameters=[@__name_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[StatusId], [s].[Name]
+FROM [Status] AS [s]
+WHERE [s].[Name] = @__name_0
+2020-04-08 22:38:39.9523|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.StatusController.GetStatus (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 93.1331ms.
+2020-04-08 22:38:39.9630|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 22:38:39.9758|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.StatusController.GetStatus (TaskManager) in 199.1819ms
+2020-04-08 22:38:39.9758|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.StatusController.GetStatus (TaskManager)'
+2020-04-08 22:38:39.9966|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 256.4714ms 200 application/json; charset=utf-8
+2020-04-08 22:38:48.7854|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:37645/api/Tasks/all application/json; charset=UTF-8 26
+2020-04-08 22:38:48.7854|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-04-08 22:38:48.8125|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetTask", controller = "Tasks"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTask(TaskManager.Models.Request.GetTasksRequest) on controller TaskManager.Controllers.TasksController (TaskManager).
+2020-04-08 22:38:48.8664|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.TasksController.GetTask (TaskManager) - Validation state: Valid
+2020-04-08 22:38:48.8857|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 22:38:48.9454|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (43ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x.Role].[RoleId], [x.Role].[Name], [x].[UserId], [x].[Username], [x].[GroupId], [x].[RoleId] AS [RoleId0], [x].[Fullname], [x].[Phone], [x].[Email]
+FROM [User] AS [x]
+LEFT JOIN [Role] AS [x.Role] ON [x].[RoleId] = [x.Role].[RoleId]
+WHERE [x].[UserId] = @__id_0
+2020-04-08 22:38:49.0077|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (45ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [x.Status].[StatusId], [x.Status].[Name], [x.Handler].[UserId], [x.Handler].[Email], [x.Handler].[Fullname], [x.Handler].[GroupId], [x.Handler].[ModifyTime], [x.Handler].[PasswordHash], [x.Handler].[Phone], [x.Handler].[RoleId], [x.Handler].[Username], [x].[TaskId], [x].[Name] AS [Name0], [x].[Description], [x].[StartTime], [x].[EndTime], [x].[StatusId] AS [StatusId0], [x].[HandlerId]
+FROM [Task] AS [x]
+INNER JOIN [Status] AS [x.Status] ON [x].[StatusId] = [x.Status].[StatusId]
+LEFT JOIN [User] AS [x.Handler] ON [x].[HandlerId] = [x.Handler].[UserId]
+ORDER BY [StatusId0], [x].[EndTime]
+2020-04-08 22:38:49.0227|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.TasksController.GetTask (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 137.8296ms.
+2020-04-08 22:38:49.0359|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 22:38:49.0359|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.TasksController.GetTask (TaskManager) in 220.3507ms
+2020-04-08 22:38:49.0613|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-04-08 22:38:49.0728|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 287.4041ms 200 application/json; charset=utf-8
+2020-04-08 22:38:51.7867|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:37645/api/Tasks/63  
+2020-04-08 22:38:51.7867|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-04-08 22:38:51.8062|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetTask", controller = "Tasks"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTask(Int32) on controller TaskManager.Controllers.TasksController (TaskManager).
+2020-04-08 22:38:51.8470|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.TasksController.GetTask (TaskManager) - Validation state: Valid
+2020-04-08 22:38:51.8470|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 22:38:51.9199|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (43ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[TaskId], [x].[ConfirmationImage], [x].[CreatedTime], [x].[Creator], [x].[Description], [x].[EndTime], [x].[HandlerId], [x].[ManagerReview], [x].[Mark], [x].[ModifyTime], [x].[Name], [x].[Report], [x].[ReviewedTime], [x].[SourceId], [x].[StartTime], [x].[StatusId], [x.Handler].[UserId], [x.Handler].[Email], [x.Handler].[Fullname], [x.Handler].[GroupId], [x.Handler].[ModifyTime], [x.Handler].[PasswordHash], [x.Handler].[Phone], [x.Handler].[RoleId], [x.Handler].[Username], [x.Status].[StatusId], [x.Status].[Name]
+FROM [Task] AS [x]
+LEFT JOIN [User] AS [x.Handler] ON [x].[HandlerId] = [x.Handler].[UserId]
+INNER JOIN [Status] AS [x.Status] ON [x].[StatusId] = [x.Status].[StatusId]
+WHERE [x].[TaskId] = @__id_0
+2020-04-08 22:38:51.9339|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.TasksController.GetTask (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 72.5136ms.
+2020-04-08 22:38:51.9468|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 22:38:51.9604|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.TasksController.GetTask (TaskManager) in 145.7237ms
+2020-04-08 22:38:51.9737|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-04-08 22:38:51.9737|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 200.147ms 200 application/json; charset=utf-8
+2020-04-08 22:38:58.6372|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:37645/api/status?name=Processing  
+2020-04-08 22:38:58.6462|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.StatusController.GetStatus (TaskManager)'
+2020-04-08 22:38:58.6462|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetStatus(System.String) on controller TaskManager.Controllers.StatusController (TaskManager).
+2020-04-08 22:38:58.7007|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.StatusController.GetStatus (TaskManager) - Validation state: Valid
+2020-04-08 22:38:58.7128|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 22:38:58.7629|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (37ms) [Parameters=[@__name_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[StatusId], [s].[Name]
+FROM [Status] AS [s]
+WHERE [s].[Name] = @__name_0
+2020-04-08 22:38:58.7761|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.StatusController.GetStatus (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 63.9922ms.
+2020-04-08 22:38:58.7906|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 22:38:58.8038|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.StatusController.GetStatus (TaskManager) in 133.6445ms
+2020-04-08 22:38:58.8038|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.StatusController.GetStatus (TaskManager)'
+2020-04-08 22:38:58.8239|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 186.6869ms 200 application/json; charset=utf-8
+2020-04-08 22:39:01.9421|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:37645/api/status?name=Rejected  
+2020-04-08 22:39:01.9421|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.StatusController.GetStatus (TaskManager)'
+2020-04-08 22:39:01.9622|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetStatus(System.String) on controller TaskManager.Controllers.StatusController (TaskManager).
+2020-04-08 22:39:01.9997|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.StatusController.GetStatus (TaskManager) - Validation state: Valid
+2020-04-08 22:39:02.0144|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 22:39:02.0585|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (30ms) [Parameters=[@__name_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[StatusId], [s].[Name]
+FROM [Status] AS [s]
+WHERE [s].[Name] = @__name_0
+2020-04-08 22:39:02.0710|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.StatusController.GetStatus (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 57.2842ms.
+2020-04-08 22:39:02.0832|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 22:39:02.0832|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.StatusController.GetStatus (TaskManager) in 122.0746ms
+2020-04-08 22:39:02.1061|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.StatusController.GetStatus (TaskManager)'
+2020-04-08 22:39:02.1145|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 172.4773ms 200 application/json; charset=utf-8
+2020-04-08 22:39:04.7324|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DELETE http://localhost:37645/api/Tasks/63  
+2020-04-08 22:39:04.7460|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.TasksController.DeleteTask (TaskManager)'
+2020-04-08 22:39:04.7642|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "DeleteTask", controller = "Tasks"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DeleteTask(Int32) on controller TaskManager.Controllers.TasksController (TaskManager).
+2020-04-08 22:39:04.8197|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.TasksController.DeleteTask (TaskManager) - Validation state: Valid
+2020-04-08 22:39:04.8404|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 22:39:04.9251|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (46ms) [Parameters=[@__get_Item_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [e].[TaskId], [e].[ConfirmationImage], [e].[CreatedTime], [e].[Creator], [e].[Description], [e].[EndTime], [e].[HandlerId], [e].[ManagerReview], [e].[Mark], [e].[ModifyTime], [e].[Name], [e].[Report], [e].[ReviewedTime], [e].[SourceId], [e].[StartTime], [e].[StatusId]
+FROM [Task] AS [e]
+WHERE [e].[TaskId] = @__get_Item_0
+2020-04-08 22:39:05.0006|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (43ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [Task]
+WHERE [TaskId] = @p0;
+SELECT @@ROWCOUNT;
+2020-04-08 22:39:05.0139|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.TasksController.DeleteTask (TaskManager), returned result Microsoft.AspNetCore.Mvc.NoContentResult in 174.7912ms.
+2020-04-08 22:39:05.0287|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 204
+2020-04-08 22:39:05.0400|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.TasksController.DeleteTask (TaskManager) in 260.5163ms
+2020-04-08 22:39:05.0400|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.TasksController.DeleteTask (TaskManager)'
+2020-04-08 22:39:05.0615|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 329.2566ms 204 
+2020-04-08 22:39:05.1428|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:37645/api/Tasks/all application/json; charset=UTF-8 26
+2020-04-08 22:39:05.1531|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-04-08 22:39:05.1626|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetTask", controller = "Tasks"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetTask(TaskManager.Models.Request.GetTasksRequest) on controller TaskManager.Controllers.TasksController (TaskManager).
+2020-04-08 22:39:05.2016|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TaskManager.Controllers.TasksController.GetTask (TaskManager) - Validation state: Valid
+2020-04-08 22:39:05.2150|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.6-servicing-10079 initialized 'TaskManagerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-08 22:39:05.2624|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (33ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x.Role].[RoleId], [x.Role].[Name], [x].[UserId], [x].[Username], [x].[GroupId], [x].[RoleId] AS [RoleId0], [x].[Fullname], [x].[Phone], [x].[Email]
+FROM [User] AS [x]
+LEFT JOIN [Role] AS [x.Role] ON [x].[RoleId] = [x.Role].[RoleId]
+WHERE [x].[UserId] = @__id_0
+2020-04-08 22:39:05.3079|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (34ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [x.Status].[StatusId], [x.Status].[Name], [x.Handler].[UserId], [x.Handler].[Email], [x.Handler].[Fullname], [x.Handler].[GroupId], [x.Handler].[ModifyTime], [x.Handler].[PasswordHash], [x.Handler].[Phone], [x.Handler].[RoleId], [x.Handler].[Username], [x].[TaskId], [x].[Name] AS [Name0], [x].[Description], [x].[StartTime], [x].[EndTime], [x].[StatusId] AS [StatusId0], [x].[HandlerId]
+FROM [Task] AS [x]
+INNER JOIN [Status] AS [x.Status] ON [x].[StatusId] = [x.Status].[StatusId]
+LEFT JOIN [User] AS [x.Handler] ON [x].[HandlerId] = [x.Handler].[UserId]
+ORDER BY [StatusId0], [x].[EndTime]
+2020-04-08 22:39:05.3186|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method TaskManager.Controllers.TasksController.GetTask (TaskManager), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 104.4799ms.
+2020-04-08 22:39:05.3186|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'TaskManager.ViewModels.ApiResult'.
+2020-04-08 22:39:05.3422|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TaskManager.Controllers.TasksController.GetTask (TaskManager) in 167.2431ms
+2020-04-08 22:39:05.3542|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'TaskManager.Controllers.TasksController.GetTask (TaskManager)'
+2020-04-08 22:39:05.3631|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 220.3506ms 200 application/json; charset=utf-8

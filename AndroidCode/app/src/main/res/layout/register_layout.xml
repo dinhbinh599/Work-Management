@@ -19,8 +19,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="back to login page"
+            android:textColor="@color/colorWhite"
             android:onClick="clickToLoginPage"
-            android:background="@drawable/button_rectangle_green"/>
+            android:background="@drawable/button_retacgle_green_2"/>
         <TextView
             android:id="@+id/textView2"
             android:layout_width="fill_parent"
@@ -28,7 +29,7 @@
             android:gravity="center"
             android:text="Register Page"
             android:layout_marginTop="50dp"
-            android:textColor="@color/colorBlue"
+            android:textColor="@color/colorMint"
             android:textSize="40dp"
             android:textStyle="bold" />
 
@@ -117,6 +118,7 @@
             android:layout_below="@+id/edtPhone"
             android:drawableLeft="@drawable/ic_person_add"
             android:layout_centerHorizontal="true"
+            android:paddingLeft="20dp"
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
             android:background="@drawable/button_rectangle_green"

@@ -16,7 +16,7 @@
             android:id="@+id/btnLogOut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_rectangle_green"
+            android:background="@drawable/button_retacgle_green_2"
             android:text="Log Out" />
 
         <TextView
@@ -24,7 +24,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="User profile"
-            android:textColor="@color/colorBlue"
+            android:textColor="@color/colorMint"
             android:textSize="40dp"
             android:gravity="center"
             android:textStyle="bold"/>
@@ -39,6 +39,7 @@
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="100dp"
+                android:layout_marginLeft="5dp"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_info"
                 android:text="Fullname:" />
@@ -62,6 +63,7 @@
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="100dp"
+                android:layout_marginLeft="5dp"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_email"
                 android:text="Email:" />
@@ -85,6 +87,7 @@
             <TextView
                 android:id="@+id/textView9"
                 android:layout_width="100dp"
+                android:layout_marginLeft="5dp"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_phone"
                 android:text="Phone" />
@@ -112,6 +115,7 @@
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="100dp"
+                android:layout_marginLeft="5dp"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:textSize="20dp"
@@ -135,8 +139,10 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
+            android:paddingLeft="15dp"
             android:layout_marginTop="40dp"
-            android:background="@drawable/button_rectangle_green"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/button_rectangle_green_3"
             android:drawableLeft="@drawable/ic_done_save"
             android:text="Save"
             android:textSize="18sp" />
