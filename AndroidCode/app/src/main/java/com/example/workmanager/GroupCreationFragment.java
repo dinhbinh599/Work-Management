@@ -52,7 +52,7 @@ public class GroupCreationFragment extends Fragment {
                     public void onResponse(Call<GroupResponse> call, Response<GroupResponse> response) {
                         if(response.isSuccessful()) {
                             Toast.makeText(getActivity(), "Create success", Toast.LENGTH_SHORT).show();
-                            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new GroupFragment()).commit();
+                            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new GroupFragment()).addToBackStack("groupFragment").commit();
                         }else{
                             Toast.makeText(getActivity(), response.message(), Toast.LENGTH_SHORT).show();
                         }

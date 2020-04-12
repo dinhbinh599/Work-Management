@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 
 import com.example.workmanager.daos.StatusDAO;
@@ -36,6 +38,9 @@ import com.example.workmanager.dtos.StatusDTO;
 import com.example.workmanager.dtos.TaskDTO;
 import com.example.workmanager.responses.TaskResponse;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -44,9 +49,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static android.app.Activity.RESULT_OK;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link TaskDetailFragment#newInstance} factory method to
+ * Use the {@link TaskDetailFragment#} factory method to
  * create an instance of this fragment.
  */
 public class TaskDetailFragment extends Fragment {
@@ -64,7 +71,7 @@ public class TaskDetailFragment extends Fragment {
     boolean isUser;
     LinearLayout reviewSection, reportSection;
     String userName, imageName, txtEndTime, userRole;
-    private static final String BASE_URL = "https://taskmanager.conveyor.cloud/upload/";
+    private static final String BASE_URL = "http://192.168.0.105:45455/upload/";
     public TaskDetailFragment() {
         // Required empty public constructor
     }
@@ -192,7 +199,7 @@ public class TaskDetailFragment extends Fragment {
                                             getActivity()
                                                     .getSupportFragmentManager()
                                                     .beginTransaction()
-                                                    .replace(R.id.fragmentContainer, new TaskFragment()).commit();
+                                                    .replace(R.id.fragmentContainer, new TaskFragment()).addToBackStack("taskFragment").commit();
                                         }
                                         default:
                                             break;
@@ -454,6 +461,42 @@ public class TaskDetailFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == RESULT_UPLOAD_IMAGE && resultCode == RESULT_OK && data != null) {
+            try {
+                Uri imageUri = data.getData();
+                InputStream imageStream = getActivity().getContentResolver().openInputStream(imageUri);
+                TaskDAO taskDAO = new TaskDAO();
+                String fileName = userName + "-" + taskId + txtEndTime;
+                byte[] result = getBytes(imageStream);
+                InputStream inputStream = getActivity().getContentResolver().openInputStream(imageUri);
+                imageView.setImageBitmap(BitmapFactory.decodeStream(inputStream));
+                taskDAO.uploadConfirmationImage(result, fileName, new Callback<TaskResponse>() {
+                    @Override
+                    public void onResponse(Call<TaskResponse> call, Response<TaskResponse> response) {
+                        if (response.isSuccessful()) {
+                            if (response.body() != null) {
+                                imageName = response.body().getMessage();
+                            }
+                            Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getActivity(), "Failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<TaskResponse> call, Throwable t) {
+                        t.printStackTrace();
+                        Toast.makeText(getActivity(), "Failure", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
 
     private void changeStatus(String name) {
         StatusDAO statusDAO = new StatusDAO();
@@ -527,6 +570,17 @@ public class TaskDetailFragment extends Fragment {
                 btnFinish.setVisibility(View.GONE);
             }
         }
+    private byte[] getBytes(InputStream is) throws IOException {
+        ByteArrayOutputStream byteBuff = new ByteArrayOutputStream();
+        int buffSize = 1024;
+        byte[] buff = new byte[buffSize];
+        int len = 0;
+        while ((len = is.read(buff)) != -1) {
+            byteBuff.write(buff, 0, len);
+        }
+        return byteBuff.toByteArray();
+    }
+
 
     private boolean isEmpty(String text) {
         return text.isEmpty();

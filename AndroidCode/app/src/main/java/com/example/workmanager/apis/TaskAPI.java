@@ -6,12 +6,15 @@ import com.example.workmanager.requests.UpdateTaskRequest;
 import com.example.workmanager.responses.GetTaskResponse;
 import com.example.workmanager.responses.TaskResponse;
 
+import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Part;
 import retrofit2.http.Path;
 
 public interface TaskAPI {
@@ -30,4 +33,7 @@ public interface TaskAPI {
     @DELETE("api/Tasks/{id}")
     Call<TaskResponse> deleteTask(@Path("id") int id);
 
+    @Multipart
+    @POST("api/Tasks/upload")
+    Call<TaskResponse> uploadConfirmation(@Part MultipartBody.Part image);
 }

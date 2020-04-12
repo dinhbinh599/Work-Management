@@ -82,7 +82,7 @@ public class GroupDetailFragment extends Fragment {
                             if(response.isSuccessful()){
                                 progressDialog.dismiss();
                                 Toast.makeText(getActivity(),"Delete success",Toast.LENGTH_LONG);
-                                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new GroupFragment()).commit();
+                                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new GroupFragment()).addToBackStack("groupFragment").commit();
                             }
                         }
 

@@ -8,6 +8,9 @@ import com.example.workmanager.requests.UpdateTaskRequest;
 import com.example.workmanager.responses.GetTaskResponse;
 import com.example.workmanager.responses.TaskResponse;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Callback;
 
 
@@ -33,5 +36,9 @@ public class TaskDAO {
     public void updateTask(int id, UpdateTaskRequest request, Callback<TaskResponse> callBack) {
         taskAPI.updateTask(id, request).enqueue(callBack);
     }
-
+    public void uploadConfirmationImage(byte[] imageBytes, String fileName, Callback<TaskResponse> callback) {
+        RequestBody requestFile = RequestBody.create(MediaType.parse("image/jpeg"), imageBytes);
+        MultipartBody.Part body = MultipartBody.Part.createFormData("file", fileName, requestFile);
+        taskAPI.uploadConfirmation(body).enqueue(callback);
+    }
 }
