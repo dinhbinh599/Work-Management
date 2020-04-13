@@ -62,7 +62,7 @@ public class TaskCreationFragment extends Fragment {
         // get User info
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("com.example.workmanager_preferences", Context.MODE_PRIVATE);
         userId = sharedPreferences.getInt("userId", 0);
-        final String userFullName = sharedPreferences.getString("userFullName", "");
+        final String userFullName = sharedPreferences.getString("fullname", "");
         String roleName = sharedPreferences.getString("userRole", "");
         int groupId = sharedPreferences.getInt("groupId", 0);
         edtName = view.findViewById(R.id.edtName);

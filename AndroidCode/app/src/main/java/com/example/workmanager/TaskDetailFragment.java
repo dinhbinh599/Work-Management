@@ -105,7 +105,7 @@ public class TaskDetailFragment extends Fragment {
         reviewSection = view.findViewById(R.id.sectionReview);
         reportSection = view.findViewById(R.id.reportSection);
         try {
-            SharedPreferences sharedPreferences = getActivity().getSharedPreferences("baohg.taskmanager_preferences", Context.MODE_PRIVATE);
+            SharedPreferences sharedPreferences = getActivity().getSharedPreferences("com.example.workmanager_preferences", Context.MODE_PRIVATE);
             userRole = sharedPreferences.getString("userRole", "");
             userName = sharedPreferences.getString("userName", "");
             btnAccept.setOnClickListener(new View.OnClickListener() {
