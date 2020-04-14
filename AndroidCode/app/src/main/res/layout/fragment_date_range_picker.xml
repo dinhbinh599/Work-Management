@@ -4,6 +4,7 @@
     android:layout_height="446dp"
     android:layout_weight="1"
     android:orientation="horizontal"
+    android:layout_margin="5dp"
     tools:context=".DateRangePickerFragment">
 
     <EditText

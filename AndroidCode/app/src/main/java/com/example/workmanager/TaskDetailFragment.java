@@ -71,7 +71,7 @@ public class TaskDetailFragment extends Fragment {
     boolean isUser;
     LinearLayout reviewSection, reportSection;
     String userName, imageName, txtEndTime, userRole;
-    private static final String BASE_URL = "https://taskmanager-ht5.conveyor.cloud/upload/";
+    private static final String BASE_URL = "http://192.168.203.2:45455/upload/";
     public TaskDetailFragment() {
         // Required empty public constructor
     }

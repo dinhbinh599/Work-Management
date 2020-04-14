@@ -21,9 +21,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         app:menu="@menu/bottom_nav_menu"
-        android:background="@android:color/white"
-        app:itemBackground="@android:color/white"
-        app:itemIconTint="@color/colorPrimary"
+        android:background="@color/colorBlackPrimary"
+        app:itemBackground="@color/colorBlackPrimary"
+        app:itemIconTint="@color/colorWhite"
         app:itemTextColor="@android:color/white" />
 
 

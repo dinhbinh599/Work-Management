@@ -11,7 +11,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="5dp">
 
 
             <Button
@@ -20,7 +21,9 @@
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_done_save"
                 android:layout_gravity="right"
-                android:background="@drawable/button_rectangle_green"
+                android:layout_margin="10dp"
+                android:paddingHorizontal="5dp"
+                android:background="@drawable/button_rectangle_green_3"
                 android:text="@string/btn_save"
                 android:textColor="@color/colorWhite"
                 android:padding="5dp"/>
@@ -46,6 +49,7 @@
                 android:id="@+id/edtDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textStyle="bold"
                 android:drawableLeft="@drawable/ic_description"
                 android:hint="@string/task_description" />
 
@@ -132,7 +136,7 @@
             <RelativeLayout
                 android:id="@+id/dateRangePickerFragment"
                 android:layout_width="match_parent"
-                android:layout_height="50dp" />
+                android:layout_height="30dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -146,16 +150,27 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="REPORT"
+                    android:text="Report Section"
                     android:textColor="@color/colorMint"
                     android:textSize="20sp"
                     android:textStyle="bold" />
+                <View
+                    android:layout_width="55dp"
+                    android:layout_height="5dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/colorMint"/>
 
                 <EditText
                     android:id="@+id/edtReport"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Report" />
+                    android:hint="Report"
+                    android:gravity="top|left"
+                    android:layout_margin="5dp"
+                    android:padding="10dp"
+                    android:maxLines="10"
+                    android:minLines="3"
+                    android:background="@drawable/edit_text_border"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -170,12 +185,14 @@
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/ic_file_upload_white"
                     android:textColor="@color/colorWhite"
-                    android:background="@color/colorMint"
+                    android:background="@drawable/button_retacgle_green_2"
+                    android:paddingHorizontal="10dp"
                     android:layout_marginLeft="5dp"
                     android:text="Upload Image" />
 
                 <ImageView
                     android:id="@+id/imgView"
+                    android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -190,12 +207,13 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@android:color/darker_gray" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Review"
+                    android:text="Review Section"
                     android:textSize="20sp"
                     android:textColor="@color/colorMint"
                     android:textStyle="bold" />
@@ -238,7 +256,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="top|left"
-                    android:hint="Please fill your comment here"
+                    android:hint="Please fill in your comment here"
+                    android:background="@drawable/edit_text_border"
+                    android:padding="10dp"
+                    android:layout_margin="5dp"
                     android:lines="10"
                     android:maxLines="15"
                     android:minLines="5" />
@@ -261,25 +282,34 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
+
+
+
                 <Button
                     android:id="@+id/btnAccept"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Accept"
-                    android:background="@color/colorPrimary"
+                    android:background="@drawable/button_retacgle_green_2"
+                    android:paddingHorizontal="10dp"
+                    android:textColor="@color/colorWhite"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="30dp"
                     android:drawableLeft="@drawable/ic_verified_accept"
                     />
+
 
                 <Button
                     android:id="@+id/btnDecline"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
+                    android:textColor="@color/colorWhite"
                     android:drawableLeft="@drawable/ic_cancel_reject"
-                    android:background="@color/colorOrange"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/button_reject"
                     android:text="Decline" />
             </RelativeLayout>
             <RelativeLayout
@@ -287,14 +317,28 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnDeleteTask"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_delete_remove"
+                    android:textColor="@color/colorWhite"
+                    android:layout_alignParentLeft="true"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/button_black"
+                    android:text="@string/btn_delete" />
+
                 <Button
                     android:id="@+id/btnFinish"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="30dp"
                     android:drawableLeft="@drawable/ic_flag_finish"
-                    android:background="@color/colorAccent"
+                    android:background="@drawable/button_rectangle_green_4"
                     android:textColor="@color/colorWhite"
+                    android:paddingHorizontal="14dp"
                     android:layout_alignParentRight="true"
                     android:text="Finish" />
 
@@ -303,26 +347,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/ic_mood_bad_failed"
-                    android:background="@color/colorYellow"
+                    android:background="@drawable/button_failed"
                     android:textColor="@color/colorWhite"
+                    android:paddingHorizontal="14dp"
                     android:layout_centerInParent="true"
                     android:text="Failed" />
             </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <Button
-                    android:id="@+id/btnDeleteTask"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:drawableLeft="@drawable/ic_delete_remove"
-                    android:textColor="@color/colorWhite"
-                    android:layout_centerInParent="true"
-                    android:background="@color/colorBrightOrange"
-                    android:text="@string/btn_delete" />
-            </RelativeLayout>
+
         </LinearLayout>
 
     </ScrollView>

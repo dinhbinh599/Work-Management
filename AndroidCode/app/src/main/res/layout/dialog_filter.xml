@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:hint="Handler"
+        android:layout_marginLeft="10dp"
         android:drawableLeft="@drawable/ic_profile"
         android:enabled="false"/>
     <fragment
@@ -25,6 +26,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:drawableLeft="@drawable/ic_timeline"
             android:textStyle="bold"
             android:textSize="20sp"

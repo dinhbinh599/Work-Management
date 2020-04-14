@@ -19,7 +19,7 @@
 
             <TextView
                 android:id="@+id/txtFullName"
-                android:textColor="@color/colorBlue"
+                android:textColor="#6074f9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
                 android:gravity="right"
-                android:layout_marginRight="5dp"
+                android:layout_marginRight="10dp"
                 android:hint="Role"
                 android:textStyle="bold"
                 android:drawableRight="@drawable/ic_user_role"/>

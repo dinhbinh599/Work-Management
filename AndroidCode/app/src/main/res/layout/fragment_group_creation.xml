@@ -3,11 +3,24 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#1976D2"
+        android:textStyle="bold"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:textSize="40dp"
+        android:text="Group Creation" />
+
     <EditText
         android:id="@+id/edtGroupName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginTop="20dp"
         android:inputType="textPersonName"
         android:hint="Group Name" />
 
@@ -17,6 +30,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/edtGroupName"
         android:ems="10"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginTop="20dp"
         android:inputType="textPersonName"
         android:hint="Description" />
     <Button
@@ -28,6 +43,7 @@
         android:drawableLeft="@drawable/ic_group_add"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
+        android:textColor="@color/colorWhite"
         android:textSize="18sp"
         android:background="@drawable/button_rectangle_green_3"
         android:text="Create"

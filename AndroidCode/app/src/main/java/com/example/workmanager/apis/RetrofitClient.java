@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
 
-    private static final String BASE_URL = "https://taskmanager-ht5.conveyor.cloud/";
+    private static final String BASE_URL = "http://192.168.203.2:45455/";
 
     public static Retrofit retrofit = null;
 

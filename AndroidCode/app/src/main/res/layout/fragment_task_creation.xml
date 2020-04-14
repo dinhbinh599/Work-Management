@@ -5,10 +5,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".TaskCreationFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#6074f9"
+        android:textStyle="bold"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:textSize="40dp"
+        android:text="Task Creation" />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/task_name"
+        android:layout_marginLeft="5dp"
         android:drawableLeft="@drawable/ic_subtitles"
         android:textStyle="bold"
         android:id="@+id/edtName"/>
@@ -16,18 +28,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/edtDescription"
+        android:layout_marginLeft="5dp"
         android:drawableLeft="@drawable/ic_description"
         android:hint="@string/task_description"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/edtSource"
+        android:layout_marginLeft="5dp"
         android:drawableLeft="@drawable/ic_attach_file_source"
         android:hint="@string/task_source"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="5dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -57,7 +72,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/btnCreate"
         android:gravity="center"
+        android:layout_marginTop="10dp"
         android:text="@string/create"
+        android:paddingHorizontal="10dp"
         android:drawableLeft="@drawable/ic_note_add"
         android:textColor="@color/colorWhite"
         android:background="@drawable/button_rectangle_green_3"

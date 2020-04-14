@@ -20,6 +20,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Task Name"
+                android:textColor="@color/colorBlackPrimary"
+                android:layout_marginLeft="5dp"
                 android:textSize="25sp"
                 android:textStyle="bold"
                 />
@@ -30,12 +32,14 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="#2d8be3"
+                android:layout_marginLeft="5dp"
                 android:text="Status"/>
             <TextView
                 android:id="@+id/txtDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
+                android:layout_marginLeft="5dp"
                 android:text="Description"/>
             <TextView
                 android:id="@+id/txtEndTime"

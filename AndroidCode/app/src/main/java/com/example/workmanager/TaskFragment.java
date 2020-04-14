@@ -159,7 +159,6 @@ public class TaskFragment extends Fragment {
                             taskList = response.body().getData();
                             taskAdapter = new TaskAdapter(taskList);
                             recyclerView.setAdapter(taskAdapter);
-                            Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
                             break;
                         }
                         case ResponseCodeConstant.UNAUTHORIZED:{

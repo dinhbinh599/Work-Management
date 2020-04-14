@@ -7,11 +7,13 @@
 
     <TextView
         android:id="@+id/txtFullName"
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:textStyle="bold"
         android:hint="User's FullName"
         android:gravity="center"
-        android:textColor="@color/colorBlue"
+        android:textColor="@color/colorBlackPrimary"
         android:textSize="30dp"/>
 
     <LinearLayout
@@ -23,7 +25,8 @@
         <TextView
             android:id="@+id/textView7"
             android:layout_width="75dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
             android:drawableLeft="@drawable/ic_email"
             android:layout_height="wrap_content"
             android:text="Email:" />
@@ -31,7 +34,7 @@
         <TextView
             android:id="@+id/txtEmail"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="24dp"
             android:text="TextView" />
     </LinearLayout>
 
@@ -44,7 +47,8 @@
         <TextView
             android:id="@+id/textView10"
             android:layout_width="75dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
             android:drawableLeft="@drawable/ic_phone"
             android:layout_height="wrap_content"
             android:text="Phone:" />
@@ -52,7 +56,7 @@
         <TextView
             android:id="@+id/txtPhone"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="24dp"
             android:text="TextView" />
     </LinearLayout>
 
@@ -65,15 +69,16 @@
         <TextView
             android:id="@+id/textView11"
             android:layout_width="75dp"
-            android:layout_marginLeft="5dp"
-            android:drawableLeft="@drawable/ic_user_role"
+            android:textStyle="bold"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:drawableLeft="@drawable/ic_user_role"
             android:text="Role:" />
 
         <TextView
             android:id="@+id/txtRole"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="24dp"
             android:text="TextView" />
     </LinearLayout>
 
@@ -86,9 +91,10 @@
         <TextView
             android:id="@+id/textView12"
             android:layout_width="75dp"
-            android:layout_marginLeft="5dp"
-            android:drawableLeft="@drawable/ic_group_blue"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:drawableLeft="@drawable/ic_group_blue"
             android:text="Group:" />
 
         <EditText
@@ -105,6 +111,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
+        android:textColor="@color/colorWhite"
         android:textSize="18sp"
         android:background="@drawable/button_rectangle_green"
         android:text="Save"

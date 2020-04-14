@@ -19,9 +19,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="back to login page"
+            android:paddingHorizontal="10dp"
+            android:layout_margin="10dp"
             android:textColor="@color/colorWhite"
             android:onClick="clickToLoginPage"
-            android:background="@drawable/button_retacgle_green_2"/>
+            android:background="@drawable/button_rectangle_green_4"/>
         <TextView
             android:id="@+id/textView2"
             android:layout_width="fill_parent"
@@ -121,6 +123,7 @@
             android:paddingLeft="20dp"
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
+            android:textColor="@color/colorWhite"
             android:background="@drawable/button_rectangle_green"
             android:onClick="clickToRegister"
             android:text="Register"
