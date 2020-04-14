@@ -28,6 +28,7 @@ import com.example.workmanager.dtos.UserDTO;
 import com.example.workmanager.requests.GetUserRequest;
 import com.example.workmanager.responses.GetGroupResponse;
 import com.example.workmanager.responses.GetUserResponse;
+import com.google.zxing.integration.android.IntentIntegrator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +42,8 @@ public class GroupFragment extends Fragment {
     GroupAdapter groupAdapter;
     UserAdapter userAdapter;
     List<UserDTO> userList;
+    Button btnSearchbyQR;
+    private IntentIntegrator qrScanner;
 
     @Nullable
     @Override
@@ -53,9 +56,15 @@ public class GroupFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("com.example.workmanager_preferences", Context.MODE_PRIVATE);
         String userRole = sharedPreferences.getString("userRole","");
+        btnSearchbyQR = view.findViewById(R.id.btnSearchByQRCode);
+        qrScanner = new IntentIntegrator(getActivity());
+        qrScanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
         if(userRole.equalsIgnoreCase(RoleConstant.ADMIN)){
             loadAllGroup();
         }else{
+            if (RoleConstant.USER.equalsIgnoreCase(userRole)) {
+                btnSearchbyQR.setVisibility(View.GONE);
+            }
             loadAllUserInGroup(sharedPreferences.getInt("groupId",0));
             edtSearch.setVisibility(View.GONE);
             btnCreateGroup.setVisibility(View.GONE);
@@ -68,6 +77,12 @@ public class GroupFragment extends Fragment {
         btnSearch.setOnClickListener((v)->{
             String search = edtSearch.getText().toString();
             searchGroup(search);
+        });
+        btnSearchbyQR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                qrScanner.initiateScan();
+            }
         });
         return view;
     }
